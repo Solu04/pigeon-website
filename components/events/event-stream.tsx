@@ -25,9 +25,9 @@ export function EventStream({children}:{children:ReactNode}) {
       // Linear interpolation between exactly two rails. Y only moves upward;
       // X reverses abruptly at the midpoint, with no curved turn or easing.
       const keyframes: Keyframe[] = [
-        {transform:`translate3d(0px, ${height + overscan}px, 0)`,offset:0},
-        {transform:`translate3d(-100px, ${height / 2}px, 0)`,offset:0.5},
-        {transform:`translate3d(0px, ${-overscan}px, 0)`,offset:1},
+        {transform:`translate3d(-100px, ${height + overscan}px, 0)`,offset:0},
+        {transform:`translate3d(0px, ${height / 2}px, 0)`,offset:0.5},
+        {transform:`translate3d(-100px, ${-overscan}px, 0)`,offset:1},
       ];
       const elapsed = performance.now() - started;
       rows.forEach((row,index) => {
