@@ -22,12 +22,13 @@ export function EventStream({children}:{children:ReactNode}) {
       if (!element) return;
       const height = element.clientHeight;
       const overscan = 75;
-      const keyframes = Array.from({length:121}, (_,index) => {
-        const progress = index / 120;
-        const x = -100 * Math.pow(2 * progress - 1, 2);
-        const y = -overscan + progress * (height + overscan * 2);
-        return {transform:`translate3d(${x}px, ${y}px, 0)`,offset:progress};
-      });
+      // Linear interpolation between exactly two rails. Y only moves upward;
+      // X reverses abruptly at the midpoint, with no curved turn or easing.
+      const keyframes: Keyframe[] = [
+        {transform:`translate3d(0px, ${height + overscan}px, 0)`,offset:0},
+        {transform:`translate3d(-100px, ${height / 2}px, 0)`,offset:0.5},
+        {transform:`translate3d(0px, ${-overscan}px, 0)`,offset:1},
+      ];
       const elapsed = performance.now() - started;
       rows.forEach((row,index) => {
         const animation = row.animate(keyframes, {duration:30000,iterations:Infinity,easing:'linear'});

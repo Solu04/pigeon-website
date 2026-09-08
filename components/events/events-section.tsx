@@ -13,7 +13,7 @@ export function EventsSection() {
     <div className="site-container events-layout">
       <EventStream>
         <ul className="events-list">
-          {events.map(([id,label],index)=><li key={id} className="event-row" style={{transform:`translate(-${Math.round(100 * Math.pow(2 * index / 12 - 1, 2))}px, ${index * 63}px)`}}>
+          {events.map(([id,label],index)=><li key={id} className="event-row" style={{transform:`translate(-${Math.round(100 * (1 - Math.abs(2 * index / 12 - 1)))}px, ${index * 63}px)`}}>
             <span>{label}</span><img src={'/images/events/'+id+(['fifa','uefa','premier-league'].includes(id)?'.svg':'.png')} width={52} height={52} alt=""/>
           </li>)}
         </ul>
