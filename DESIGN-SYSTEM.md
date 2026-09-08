@@ -27,4 +27,4 @@ The events section uses a 200px desktop column gap. At 1000px and below, copy mo
 
 The shared waitlist button opens the same signup dialog from every section. Hero height is 80px desktop / 64px mobile; compact section height is 56px. Colored squares shuffle from yellow backward through blush, blue, and coral.
 
-Event rows move continuously downward, with smooth lateral movement forming a bowed path. Labels and badges stay upright. A stationary gradient mask fades both ends, hiding the loop reset. Twelve rows share a 30-second cycle, spaced 2.5 seconds apart. Reduced-motion mode presents a static list.
+Event rows move continuously downward, with smooth lateral movement forming a bowed path. Labels and badges stay upright. A stationary gradient mask fades both ends, hiding the loop reset. Twelve rows share a 30-second cycle, spaced 2.5 seconds apart. The event animation runs by default as explicitly requested. A visible pause/play control lets visitors stop the continuous motion.

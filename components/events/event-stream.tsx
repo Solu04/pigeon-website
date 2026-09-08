@@ -1,23 +1,25 @@
 "use client";
 
-import { useEffect, useRef, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 
 /** Keep readable server-rendered rows, then animate one combined transform per row. */
 export function EventStream({children}:{children:ReactNode}) {
+  const [paused, setPaused] = useState(false);
+  const pausedRef = useRef(false);
+  const activeAnimations = useRef<Animation[]>([]);
   const stream = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const element = stream.current;
     if (!element) return;
     const rows = Array.from(element.querySelectorAll<HTMLElement>('.event-row'));
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const started = performance.now();
     let animations: Animation[] = [];
 
     function update() {
       animations.forEach(animation => animation.cancel());
       animations = [];
-      if (!element || reducedMotion.matches) return;
+      if (!element) return;
       const height = element.clientHeight;
       const overscan = 75;
       const keyframes = Array.from({length:121}, (_,index) => {
@@ -30,20 +32,25 @@ export function EventStream({children}:{children:ReactNode}) {
       rows.forEach((row,index) => {
         const animation = row.animate(keyframes, {duration:30000,iterations:Infinity,easing:'linear'});
         animation.currentTime = elapsed + index * 30000 / rows.length;
+        if (pausedRef.current) animation.pause();
         animations.push(animation);
       });
+      activeAnimations.current = animations;
     }
 
     const observer = new ResizeObserver(update);
     observer.observe(element);
-    reducedMotion.addEventListener('change', update);
     update();
     return () => {
       observer.disconnect();
-      reducedMotion.removeEventListener('change', update);
       animations.forEach(animation => animation.cancel());
     };
   }, []);
 
-  return <div ref={stream} className="events-stream" aria-label="Events and topics on Pigeon">{children}</div>;
+  useEffect(() => {
+    pausedRef.current = paused;
+    activeAnimations.current.forEach(animation => paused ? animation.pause() : animation.play());
+  }, [paused]);
+
+  return <div className="events-motion"><div ref={stream} className="events-stream" aria-label="Events and topics on Pigeon">{children}</div><button type="button" className="events-motion-toggle" aria-pressed={paused} onClick={()=>setPaused(value=>!value)}>{paused ? 'Play animation' : 'Pause animation'}</button></div>;
 }
