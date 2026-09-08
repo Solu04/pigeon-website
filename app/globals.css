@@ -9,7 +9,7 @@
 .hero{position:relative;isolation:isolate;min-height:100svh;height:max(100svh,640px);overflow:hidden;overflow:clip;background:#111}
 .site-header{position:absolute;inset:25px 4% auto;z-index:10;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;height:50px}
 .brand{display:block;width:83px;height:50px}.brand img{display:block;width:100%;height:100%;object-fit:contain}.navigation{display:flex;align-items:center;justify-content:space-evenly;width:clamp(240px,24.8vw,375px);height:50px;background:#222;border-radius:16px;font-size:15px}.navigation a,.navigation button{display:grid;place-items:center;width:46%;height:100%;border:0;background:none;color:#fff}.navigation span{height:17px;width:2px;background:#444}.navigation a:hover,.navigation button:hover{color:#fc6457}.header-cta{justify-self:end;height:50px;padding:0 25px;border:0;border-radius:999px;background:var(--coral);color:white;font-size:16px;transition:background .2s}.header-cta:hover{background:#e94b3e}
-.hero-title-area{position:absolute;inset:19.85% 0 auto;display:flex;justify-content:center;pointer-events:none}.hero-heading{margin:0;text-align:center;font-family:'Pigeon Display',Impact,sans-serif;font-weight:400;font-size:clamp(88px,13.23vw,250px);line-height:.86;letter-spacing:-.012em;text-transform:uppercase}.hero-heading span{display:block;white-space:nowrap}
+.hero-title-area{position:absolute;inset:19.85% 0 auto;display:flex;justify-content:center;pointer-events:none}.hero-heading{margin:0;text-align:center;font-family:'Pigeon Display',Impact,sans-serif;font-weight:400;font-size:clamp(88px,13.23vw,230px);line-height:.86;letter-spacing:-.012em;text-transform:uppercase}.hero-heading span{display:block;white-space:nowrap}
 .waitlist-cta{position:absolute;z-index:12;bottom:40px;left:50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;gap:24px;width:322px;height:80px;border:0;border-radius:999px;background:var(--pink);color:#fff;font-size:24px;letter-spacing:-.02em;transition:background .2s,box-shadow .2s}.waitlist-cta:hover{background:#ff4166;box-shadow:0 8px 40px #fe2c5530}.crowd-colors{display:flex;width:75px;flex-shrink:0}.crowd-colors i{display:block;flex:0 0 30px;height:30px;border:1px solid white;border-radius:10px;margin-left:-15px}.crowd-colors i:first-child{margin-left:0}
 .hero-artwork{position:absolute;inset:0;pointer-events:none;z-index:3}.artwork-position{position:absolute;left:var(--x);top:var(--y);width:clamp(48px,var(--asset-fluid),var(--asset-size));aspect-ratio:1;transform:translate(-50%,-50%)}.artwork-reveal{width:100%;height:100%;opacity:0;animation:artwork-life 3300ms cubic-bezier(.2,.7,.2,1) var(--delay) both;will-change:transform,opacity,filter;mask-image:linear-gradient(135deg,#000 0%,#000 40%,transparent 60%,transparent 100%);mask-size:300% 300%;mask-position:0% 0%}.artwork-reveal img{display:block;width:100%;height:100%;object-fit:contain}
 @keyframes artwork-life{0%{opacity:0;transform:translateY(18px) scale(.78) rotate(-5deg);filter:blur(5px);mask-position:0% 0%}12%{opacity:1;transform:translateY(0) scale(1.035) rotate(1deg);filter:blur(0)}22%{transform:translateY(-2px) scale(1) rotate(0deg)}60%{opacity:1;transform:translateY(-9px) scale(1);filter:blur(0);mask-position:0% 0%}100%{opacity:0;transform:translateY(-25px) scale(.96) rotate(3deg);filter:blur(8px);mask-position:100% 100%}}
@@ -17,3 +17,38 @@
 @media(min-width:1800px){.hero-title-area{top:17%}}
 @media(max-width:700px){.hero{height:max(100svh,620px)}.site-header{inset:20px 20px auto;gap:12px;grid-template-columns:1fr auto}.brand{width:62px;height:40px}.navigation{display:none}.header-cta{height:42px;padding:0 19px;font-size:14px}.hero-title-area{top:25%}.hero-heading{font-size:clamp(64px,17.2vw,120px);line-height:.9;letter-spacing:-.02em}.hero-artwork{left:-34%;right:-34%;width:168%}.artwork-position{width:calc(var(--asset-size)*.58);top:calc(var(--y)*.92 + 5%)}.waitlist-cta{width:270px;height:64px;gap:18px;font-size:20px}.crowd-colors{transform:scale(.85);transform-origin:right center}.artwork-arena{top:75%}.artwork-reward{top:74%}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.artwork-reveal{animation:artwork-fade 3300ms linear var(--delay) both;mask-image:none;filter:none;will-change:opacity}@keyframes artwork-fade{0%,100%{opacity:0}10%,75%{opacity:1}}}
+
+/* Yellow leads, then blush, blue, and coral. The invisible reset keeps the shuffle seamless. */
+.crowd-colors{overflow:visible}
+.crowd-colors i{animation:crowd-shuffle 4200ms cubic-bezier(.4,0,.2,1) infinite;will-change:transform,opacity}
+.crowd-colors i:nth-child(4){animation-delay:0ms}
+.crowd-colors i:nth-child(3){animation-delay:150ms}
+.crowd-colors i:nth-child(2){animation-delay:300ms}
+.crowd-colors i:nth-child(1){animation-delay:450ms}
+@keyframes crowd-shuffle{0%,50%{opacity:1;transform:translateX(0)}59%{opacity:0;transform:translateX(12px)}60%{opacity:0;transform:translateX(-12px)}72%,100%{opacity:1;transform:translateX(0)}}
+.header-cta,.form-submit{transition:background .2s,box-shadow .2s,scale .2s}
+.header-cta:hover,.form-submit:hover{scale:1.035;box-shadow:0 6px 24px #fc645722}
+.header-cta:active,.form-submit:active,.waitlist-cta:active{scale:.98}
+
+.product-tour{padding:98px 24px;background:var(--background);font-family:var(--body-font)}
+.product-tabs{display:grid!important;grid-template-columns:minmax(0,611px) 260px;gap:29px!important;max-width:900px;margin-inline:auto;align-items:stretch}
+.product-tab-list{grid-column:2;grid-row:1;display:flex!important;flex-direction:column!important;gap:20px!important;width:100%!important;height:auto!important;padding:0!important;background:transparent!important;justify-content:flex-start!important;align-items:stretch!important}
+.product-tab{position:relative;display:block!important;flex:0 0 auto!important;width:100%;height:auto!important;min-height:65px;padding:17px 20px!important;border:0!important;border-radius:15px!important;background:var(--tab-color)!important;color:#111!important;text-align:left;white-space:normal!important;box-shadow:none!important;font-family:var(--body-font);overflow:hidden;transition:filter .2s,box-shadow .2s!important}
+.product-tab:after{display:none!important}.product-tab:hover{filter:brightness(1.045)}.product-tab:focus-visible{outline:3px solid white!important;outline-offset:5px!important}
+.product-tab-header{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:30px}
+.product-tab-label{display:inline-flex;align-items:center;border-radius:999px;background:#ffffffb3;padding:4px 10px;font-size:16px;line-height:22px;letter-spacing:-.03em}
+.product-tab-icon{width:30px!important;height:30px!important;object-fit:contain;flex-shrink:0}
+.product-tab-details{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .35s ease,opacity .25s ease}
+.product-tab-details-inner{min-height:0;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start}
+.product-tab[data-active] .product-tab-details{grid-template-rows:1fr;opacity:1}
+.product-tab-title{display:block;font-family:var(--body-font);font-size:28px;font-weight:500;line-height:1.12;letter-spacing:-.04em;margin:7px 0 18px}
+.product-tab-description{display:block;font-size:14px;line-height:1.22;letter-spacing:-.025em;color:#404040;margin-bottom:20px}
+.product-tab-number{display:block;font-size:20px;line-height:24px;letter-spacing:-.04em;margin-top:auto}
+.product-render-stage{grid-column:1;grid-row:1;min-width:0;aspect-ratio:611/511;align-self:start;position:relative;border:2px solid #fff;border-radius:22px;background:#181818;display:grid;place-items:center;padding:0;overflow:hidden}
+.product-render-panel{width:100%;height:100%;display:grid;place-items:center;min-width:0;animation:render-enter .35s ease both}
+.product-render-panel[hidden]{display:none!important}
+.product-render-image{display:block;max-width:100%;width:100%;height:auto;max-height:100%;object-fit:contain}
+@keyframes render-enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){.product-tour{padding:64px 20px}.product-tabs{grid-template-columns:1fr;gap:24px!important;max-width:540px}.product-tab-list{grid-column:1;grid-row:2;gap:12px!important}.product-render-stage{grid-column:1;grid-row:1;min-height:0;padding:0}.product-render-image{height:auto}.product-tab-title{font-size:26px}.product-tab-description{max-width:38ch;font-size:15px;line-height:1.4}}
+@media(prefers-reduced-motion:reduce){.crowd-colors i{animation:none}.header-cta,.form-submit{transition:none}.product-tab-details{transition:none}.product-render-panel{animation:none}}
+
