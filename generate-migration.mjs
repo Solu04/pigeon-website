@@ -1,0 +1,11 @@
+import { generateSQLiteDrizzleJson, generateSQLiteMigration } from 'drizzle-kit/api';
+import * as schema from './db/schema.ts';
+import { mkdir, writeFile } from 'node:fs/promises';
+const empty=await generateSQLiteDrizzleJson({});
+const snapshot=await generateSQLiteDrizzleJson(schema,empty.id);
+const statements=await generateSQLiteMigration(empty,snapshot);
+await mkdir('drizzle/meta',{recursive:true});
+await writeFile('drizzle/0000_pigeon_waitlist.sql',statements.join(';\n--> statement-breakpoint\n').replace(/;;/g,';')+'\n');
+await writeFile('drizzle/meta/0000_snapshot.json',JSON.stringify(snapshot,null,2));
+await writeFile('drizzle/meta/_journal.json',JSON.stringify({version:'7',dialect:'sqlite',entries:[{idx:0,version:snapshot.version,when:1788839400000,tag:'0000_pigeon_waitlist',breakpoints:true}]},null,2));
+console.log(statements.join('\n'));
