@@ -15,7 +15,7 @@ const tabs = [
 export function ProductTour({renders}:{renders:ProductRenders}) {
   const [active,setActive]=useState<ProductTabId>('join');
   return <section className="product-tour" aria-label="Discover Pigeon">
-    <Tabs orientation="vertical" value={active} onValueChange={value=>setActive(value as ProductTabId)} className="product-tabs">
+    <div className="site-container"><Tabs orientation="vertical" value={active} onValueChange={value=>setActive(value as ProductTabId)} className="product-tabs">
       <div className="product-render-stage">
         {tabs.map(tab=><TabsContent key={tab.id} value={tab.id} className="product-render-panel">
           <img className="product-render-image" src={renders[tab.id].src} alt={renders[tab.id].alt} width={611} height={511}/>
@@ -27,6 +27,6 @@ export function ProductTour({renders}:{renders:ProductRenders}) {
           <span className="product-tab-details" aria-hidden={active!==tab.id}><span className="product-tab-details-inner"><span className="product-tab-title">{tab.title}</span><span className="product-tab-description">{tab.description}</span><span className="product-tab-number">{tab.number}</span></span></span>
         </TabsTrigger>)}
       </TabsList>
-    </Tabs>
+    </Tabs></div>
   </section>;
 }

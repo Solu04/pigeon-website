@@ -1,3 +1,5 @@
+import { EventsSection } from '@/components/events/events-section';
+import { WaitlistProvider } from '@/components/waitlist/waitlist-provider';
 import { Hero } from '@/components/hero/hero';
 import { ProductTour, type ProductRenders } from '@/components/product-tour/product-tour';
 
@@ -8,4 +10,4 @@ const renders: ProductRenders = {
   profile: { src: '/images/renders/profile.svg', alt: 'Track your positions and prediction history on your profile' },
 };
 
-export default function Home() { return <main><Hero /><ProductTour renders={renders} /></main>; }
+export default function Home() { return <WaitlistProvider><main><Hero /><ProductTour renders={renders} /><EventsSection /></main></WaitlistProvider>; }
