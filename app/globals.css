@@ -36,14 +36,14 @@
 .product-tab{position:relative;display:block!important;flex:0 0 auto!important;width:100%;height:auto!important;min-height:65px;padding:17px 20px!important;border:0!important;border-radius:15px!important;background:var(--tab-color)!important;color:#111!important;text-align:left;white-space:normal!important;box-shadow:none!important;font-family:var(--body-font);overflow:hidden;transition:filter .2s,box-shadow .2s!important}
 .product-tab:after{display:none!important}.product-tab:hover{filter:brightness(1.045)}.product-tab:focus-visible{outline:3px solid white!important;outline-offset:5px!important}
 .product-tab-header{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:30px}
-.product-tab-label{display:inline-flex;align-items:center;border-radius:999px;background:#ffffffb3;padding:4px 10px;font-size:16px;line-height:22px;letter-spacing:-.03em}
+.product-tab-label{display:inline-flex;align-items:center;border-radius:999px;background:#ffffffb3;padding:4px 10px;font-size:16px;line-height:22px;letter-spacing:-.02em}
 .product-tab-icon{width:30px!important;height:30px!important;object-fit:contain;flex-shrink:0}
 .product-tab-details{display:grid;grid-template-rows:0fr;opacity:0;transition:grid-template-rows .35s ease,opacity .25s ease}
 .product-tab-details-inner{min-height:0;overflow:hidden;display:flex;flex-direction:column;align-items:flex-start}
 .product-tab[data-active] .product-tab-details{grid-template-rows:1fr;opacity:1}
-.product-tab-title{display:block;font-family:var(--body-font);font-size:28px;font-weight:500;line-height:1.12;letter-spacing:-.04em;margin:7px 0 18px}
-.product-tab-description{display:block;font-size:14px;line-height:1.22;letter-spacing:-.025em;color:#404040;margin-bottom:20px}
-.product-tab-number{display:block;font-size:20px;line-height:24px;letter-spacing:-.04em;margin-top:auto}
+.product-tab-title{display:block;font-family:var(--body-font);font-size:28px;font-weight:500;line-height:1.12;letter-spacing:-.02em;margin:7px 0 18px}
+.product-tab-description{display:block;font-size:15px;line-height:1.35;letter-spacing:-.01em;color:#303030;margin-bottom:20px}
+.product-tab-number{display:block;font-size:20px;font-weight:700;line-height:24px;letter-spacing:-.04em;margin-top:auto}
 .product-render-stage{grid-column:1;grid-row:1;min-width:0;aspect-ratio:611/511;align-self:start;position:relative;border:2px solid #fff;border-radius:22px;background:#181818;display:grid;place-items:center;padding:0;overflow:hidden}
 .product-render-panel{width:100%;height:100%;display:grid;place-items:center;min-width:0;animation:render-enter .35s ease both}
 .product-render-panel[hidden]{display:none!important}
@@ -51,4 +51,5 @@
 @keyframes render-enter{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @media(max-width:760px){.product-tour{padding:64px 20px}.product-tabs{grid-template-columns:1fr;gap:24px!important;max-width:540px}.product-tab-list{grid-column:1;grid-row:2;gap:12px!important}.product-render-stage{grid-column:1;grid-row:1;min-height:0;padding:0}.product-render-image{height:auto}.product-tab-title{font-size:26px}.product-tab-description{max-width:38ch;font-size:15px;line-height:1.4}}
 @media(prefers-reduced-motion:reduce){.crowd-colors i{animation:none}.header-cta,.form-submit{transition:none}.product-tab-details{transition:none}.product-render-panel{animation:none}}
+
 
