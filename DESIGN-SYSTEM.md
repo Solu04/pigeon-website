@@ -2,7 +2,7 @@
 
 ## Typography
 
-Use Ruder Plakat (local Pigeon Display face) for display headings and PP Neue Montreal for interface and body text. Do not introduce Bricolage from the reference frames.
+Use Ruder Plakat (local Pigeon Display face) for the hero heading. Use PP Neue Montreal for the events section heading, interface and body text. Do not introduce Bricolage from the reference frames.
 
 | Role | Size | Letter spacing | Line height |
 | --- | --- | --- | --- |

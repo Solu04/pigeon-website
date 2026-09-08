@@ -62,19 +62,16 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-r
 .events-section{background:#181818;overflow:clip}
 .events-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:200px;align-items:center}
 .events-copy{max-width:460px;padding-block:80px}
-.events-copy h2{font-family:'Pigeon Display',Impact,sans-serif;font-size:clamp(44px,4.1vw,60px);font-weight:400;line-height:var(--leading-title);letter-spacing:var(--tracking-title);margin:0 0 24px}
+.events-copy h2{font-family:var(--body-font);font-size:clamp(44px,4.1vw,52px);font-weight:500;line-height:var(--leading-title);letter-spacing:var(--tracking-title);margin:0 0 24px}
 .events-copy p{font-size:18px;line-height:var(--leading-body);letter-spacing:var(--tracking-body);color:#bdbdbd;margin:0 0 30px}
 .waitlist-cta--compact{position:relative;bottom:auto;left:auto;transform:none;width:100%;max-width:360px;height:56px;font-size:20px;gap:20px;z-index:auto}
 .waitlist-cta--compact .crowd-colors{transform:scale(.8);transform-origin:center;width:66px}
 .events-stream{height:720px;position:relative;min-width:0;overflow:hidden;mask-image:linear-gradient(to bottom,transparent,#000 20%,#000 80%,transparent)}
 .events-list{list-style:none;margin:0;padding:0}
-.event-row{position:absolute;top:0;right:0;display:flex;justify-content:flex-end;align-items:center;gap:15px;white-space:nowrap;font-size:clamp(26px,2.5vw,36px);line-height:1.2;letter-spacing:var(--tracking-title);animation:event-flow 30s linear infinite,event-sway 30s ease-in-out infinite;animation-delay:calc(var(--event-index)*-2.5s),calc(var(--event-index)*-2.5s);will-change:transform}
+.event-row{position:absolute;top:0;right:0;display:flex;justify-content:flex-end;align-items:center;gap:15px;white-space:nowrap;font-size:clamp(26px,2.5vw,36px);line-height:1.2;letter-spacing:var(--tracking-title);will-change:transform}
 .event-row img{width:52px;height:52px;flex-shrink:0;object-fit:contain}
 /* One continuous bowed path; each item enters and resets outside the faded viewport. */
-@keyframes event-flow{from{transform:translateY(-90px)}to{transform:translateY(810px)}}
-@keyframes event-sway{0%,100%{translate:-100px 0}50%{translate:0 0}}
 @media(max-width:1100px){:root{--page-gutter:32px}.event-row{font-size:26px}}
-@media(max-width:1000px){.events-layout{grid-template-columns:1fr;gap:0}.events-copy{grid-row:1;max-width:560px;padding:72px 0 24px}.events-copy h2{font-size:52px}.events-stream{grid-row:2;width:100%;max-width:540px;justify-self:center;height:480px}.event-row{font-size:24px;animation-name:event-flow-mobile,event-sway}.event-row img{width:40px;height:40px}.events-copy .waitlist-cta--compact{display:none}}
-@keyframes event-flow-mobile{from{transform:translateY(-63px)}to{transform:translateY(693px)}}
+@media(max-width:1000px){.events-layout{grid-template-columns:1fr;gap:0}.events-copy{grid-row:1;max-width:560px;padding:72px 0 24px}.events-copy h2{font-size:52px}.events-stream{grid-row:2;width:100%;max-width:540px;justify-self:center;height:480px}.event-row{font-size:24px}.event-row img{width:40px;height:40px}.events-copy .waitlist-cta--compact{display:none}}
 @media(max-width:700px){:root{--page-gutter:20px}.events-copy h2{font-size:45px}.events-copy p{font-size:17px}.events-copy{padding-top:72px}.events-stream{margin-bottom:24px}}
-@media(prefers-reduced-motion:reduce){.events-stream{height:auto;mask-image:none;padding-block:36px}.events-list{display:grid;gap:20px}.event-row{position:static;animation:none;transform:none;translate:none;white-space:normal;will-change:auto}.events-copy{padding-block:48px}}
+@media(prefers-reduced-motion:reduce){.events-stream{height:auto;mask-image:none;padding-block:36px}.events-list{display:grid;gap:20px}.event-row{position:static;animation:none;transform:none!important;translate:none;white-space:normal;will-change:auto}.events-copy{padding-block:48px}}

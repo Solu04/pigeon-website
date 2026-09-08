@@ -1,4 +1,4 @@
-import type { CSSProperties } from 'react';
+import { EventStream } from './event-stream';
 import { WaitlistButton } from '@/components/waitlist/waitlist-button';
 
 const events = [
@@ -11,13 +11,13 @@ const events = [
 export function EventsSection() {
   return <section className="events-section" aria-labelledby="events-heading">
     <div className="site-container events-layout">
-      <div className="events-stream" aria-label="Events and topics on Pigeon">
+      <EventStream>
         <ul className="events-list">
-          {events.map(([id,label],index)=><li key={id} className="event-row" style={{'--event-index':index} as CSSProperties}>
+          {events.map(([id,label],index)=><li key={id} className="event-row" style={{transform:`translate(-${Math.round(100 * Math.pow(2 * index / 12 - 1, 2))}px, ${index * 63}px)`}}>
             <span>{label}</span><img src={'/images/events/'+id+(['fifa','uefa','premier-league'].includes(id)?'.svg':'.png')} width={52} height={52} alt=""/>
           </li>)}
         </ul>
-      </div>
+      </EventStream>
       <div className="events-copy">
         <h2 id="events-heading">World’s biggest<br/>events. One place.</h2>
         <p>From sports and politics to entertainment and finance, trade the events shaping the world.</p>
