@@ -4,6 +4,19 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 export function ViewAnimation({className,src,alt,width,height}:{className:string;src:string;alt:string;width:number;height:number}){
   const ref=useRef<HTMLSpanElement>(null);
   const [entry,setEntry]=useState(0);
+  const [document,setDocument]=useState('');
+  useEffect(()=>{
+    const controller=new AbortController();
+    fetch(src,{signal:controller.signal}).then(response=>{
+      if(!response.ok)throw new Error('Animation asset unavailable');
+      return response.text();
+    }).then(svg=>{
+      const start=svg.indexOf('<svg');
+      if(start<0)return;
+      setDocument('<!doctype html><html><head><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent!important;color-scheme:light}body>svg{display:block;width:100%;height:100%}</style></head><body>'+svg.slice(start)+'</body></html>');
+    }).catch(error=>{if(error.name!=='AbortError')console.error(error);});
+    return()=>controller.abort();
+  },[src]);
   useEffect(()=>{
     const node=ref.current;if(!node)return;
     let inside=false;
@@ -13,7 +26,7 @@ export function ViewAnimation({className,src,alt,width,height}:{className:string
     },{threshold:0});
     observer.observe(node);return()=>observer.disconnect();
   },[]);
-  return <span ref={ref} className={className} style={{aspectRatio:`${width}/${height}`}}>{entry>0&&<iframe key={entry} src={src} title={alt} width={width} height={height} sandbox="" tabIndex={-1}/>}</span>;
+  return <span ref={ref} className={className} style={{aspectRatio:`${width}/${height}`}}>{entry>0&&document&&<iframe key={entry} srcDoc={document} title={alt} width={width} height={height} sandbox="" tabIndex={-1}/>}</span>;
 }
 
 export function Reveal({children,className,stagger=false}:{children:ReactNode;className:string;stagger?:boolean}){
@@ -21,8 +34,6 @@ export function Reveal({children,className,stagger=false}:{children:ReactNode;cl
   useEffect(()=>{
     const node=ref.current;if(!node)return;
     const targets=stagger?Array.from(node.children) as HTMLElement[]:[node];
-    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduced)return;
     targets.forEach(target=>{target.style.opacity='0';target.style.transform='translateY(45px)';});
     const observer=new IntersectionObserver(([entry])=>{
       if(!entry.isIntersecting)return;

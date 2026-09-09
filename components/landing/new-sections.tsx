@@ -15,7 +15,7 @@ export function NewSections() {
     </section>
     <section className="fair-section site-container" aria-labelledby="fair-heading">
       <h2 id="fair-heading" className="landing-display">Designed for<br/>fair markets.</h2>
-      <Reveal className="fair-grid" stagger>{[
+      <Reveal className="fair-grid">{[
         ['Transparent Markets','Every trade updates prices publicly.'],
         ['Fast Execution','Orders execute instantly.'],
         ['Smart Resolution','Markets settle after verified outcomes.'],
