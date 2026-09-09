@@ -28,3 +28,10 @@ The events section uses a 200px desktop column gap. At 1000px and below, copy mo
 The shared waitlist button opens the same signup dialog from every section. Hero height is 80px desktop / 64px mobile; compact section height is 56px. Colored squares shuffle from yellow backward through blush, blue, and coral.
 
 Event rows move continuously upward along two straight diagonal rails: bottom-left to middle-right, then middle-right to top-left. Linear interpolation creates a sharp midpoint direction change; there is no curved turn. Labels and badges stay upright. A stationary gradient mask fades both ends, hiding the loop reset. Twelve rows share a 30-second cycle, spaced 2.5 seconds apart. The event animation runs by default as explicitly requested. A visible pause/play control lets visitors stop the continuous motion.
+
+
+## Additional landing sections
+
+Discover, rewards, fair markets, and FAQ use Ruder Plakat display headings. All card titles, descriptions, questions and answers use PP Neue Montreal. FAQ questions are 22px; answers are 16px with 1.5 line height. Only one answer is open, starting with the first item.
+
+The social-card section pins while its three cards reveal sequentially with scroll progress. Desktop retains revealed cards side by side; mobile uses one card at a time. Reduced-motion and short viewports present the complete cards in regular flow. Supplied reward SVG animations are preserved. The static live-pill export is supplemented with exact Figma scene assets and its 4.2-second vertical scene transition.
