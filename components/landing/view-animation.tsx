@@ -13,7 +13,7 @@ export function ViewAnimation({className,src,alt,width,height}:{className:string
     }).then(svg=>{
       const start=svg.indexOf('<svg');
       if(start<0)return;
-      setDocument('<!doctype html><html><head><style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:transparent!important;color-scheme:light}body>svg{display:block;width:100%;height:100%}</style></head><body>'+svg.slice(start)+'</body></html>');
+      setDocument(svg.slice(start));
     }).catch(error=>{if(error.name!=='AbortError')console.error(error);});
     return()=>controller.abort();
   },[src]);
@@ -26,7 +26,28 @@ export function ViewAnimation({className,src,alt,width,height}:{className:string
     },{threshold:0});
     observer.observe(node);return()=>observer.disconnect();
   },[]);
-  return <span ref={ref} className={className} style={{aspectRatio:`${width}/${height}`}}>{entry>0&&document&&<iframe key={entry} srcDoc={document} title={alt} width={width} height={height} sandbox="" tabIndex={-1}/>}</span>;
+  useEffect(()=>{
+    const host=ref.current;
+    if(!host||!document||entry===0)return;
+    // Isolate asset styles without an iframe canvas or colour-scheme background.
+    const shadow=host.shadowRoot??host.attachShadow({mode:'open'});
+    const parsed=new DOMParser().parseFromString(document,'image/svg+xml');
+    if(parsed.querySelector('parsererror'))return;
+    const svg=parsed.documentElement;
+    svg.querySelectorAll('script,foreignObject').forEach(node=>node.remove());
+    svg.querySelectorAll('*').forEach(node=>{
+      Array.from(node.attributes).forEach(attribute=>{
+        if(attribute.name.startsWith('on'))node.removeAttribute(attribute.name);
+      });
+    });
+    svg.setAttribute('role','img');
+    svg.setAttribute('aria-label',alt);
+    svg.setAttribute('style','display:block;width:100%;height:100%;background:transparent');
+    shadow.replaceChildren(window.document.importNode(svg,true));
+    return()=>shadow.replaceChildren();
+  },[document,entry,alt]);
+  return <span ref={ref} className={className} style={{aspectRatio:`${width}/${height}`}}/>;
+
 }
 
 export function Reveal({children,className,stagger=false}:{children:ReactNode;className:string;stagger?:boolean}){
