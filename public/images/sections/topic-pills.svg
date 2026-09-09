@@ -1,4 +1,4 @@
-<svg width="329" height="442" viewBox="0 0 329 442" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="100%" height="100%" viewBox="0 0 329 442" fill="none" xmlns="http://www.w3.org/2000/svg">
 <style>
 svg { overflow: visible; }
 @keyframes kf_Group_6959_transform_0 {
@@ -34,7 +34,7 @@ svg { overflow: visible; }
 }
 #Group_6959 {
   transform-origin: 0 0;
-  animation: kf_Group_6959_transform_0 2s linear infinite;
+  animation: kf_Group_6959_transform_0 2s linear 1;
 }
 @keyframes kf_Football_transform_0 {
   0% {
@@ -66,7 +66,7 @@ svg { overflow: visible; }
 }
 #Football {
   transform-origin: 0 0;
-  animation: kf_Football_transform_0 2s linear infinite;
+  animation: kf_Football_transform_0 2s linear 1;
 }
 @keyframes kf_Entertainment_transform_0 {
   0% {
@@ -101,7 +101,7 @@ svg { overflow: visible; }
 }
 #Entertainment {
   transform-origin: 0 0;
-  animation: kf_Entertainment_transform_0 2s linear infinite;
+  animation: kf_Entertainment_transform_0 2s linear 1;
 }
 @keyframes kf_Tech___Science_transform_0 {
   0% {
@@ -136,7 +136,7 @@ svg { overflow: visible; }
 }
 #Tech___Science {
   transform-origin: 0 0;
-  animation: kf_Tech___Science_transform_0 2s linear infinite;
+  animation: kf_Tech___Science_transform_0 2s linear 1;
 }
 @keyframes kf_Elections_transform_0 {
   0% {
@@ -171,7 +171,7 @@ svg { overflow: visible; }
 }
 #Elections {
   transform-origin: 0 0;
-  animation: kf_Elections_transform_0 2s linear infinite;
+  animation: kf_Elections_transform_0 2s linear 1;
 }
 @keyframes kf_Economics_transform_0 {
   0% {
@@ -206,8 +206,10 @@ svg { overflow: visible; }
 }
 #Economics {
   transform-origin: 0 0;
-  animation: kf_Economics_transform_0 2s linear infinite;
+  animation: kf_Economics_transform_0 2s linear 1;
 }
+
+* { animation-iteration-count:1!important; animation-fill-mode:forwards!important; }
 </style>
 <g id="card_pill">
 <g id="Frame_60">

@@ -133,3 +133,29 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-r
 @media(max-width:700px){.landing-display{font-size:clamp(44px,10.5vw,74px)}.discover-section{padding-block:80px 40px}.discover-heading .discover-last-line{gap:24px}.discover-pill{width:140px;height:63px;border-radius:17px}.discover-pill img{left:9px;top:4px;width:88px;height:52px}.discover-pill .discover-second-scene{width:122px;height:48px}.social-grid{grid-template-columns:1fr;gap:48px}.social-card{max-width:370px;width:100%;margin-inline:auto}.social-card h3{font-size:24px;margin-top:20px}.social-card p{font-size:17px}.social-scroll-ready{height:320svh}.social-scroll-ready .social-grid{display:grid;gap:0}.social-scroll-ready .social-card{grid-area:1/1;align-self:start}.social-scroll-ready .social-card>img{max-height:48svh}.rewards-heading{margin-bottom:45px}.rewards-heading .landing-display{font-size:clamp(42px,10.5vw,68px)}.rewards-heading>p{font-size:17px;margin-top:22px}.rewards-grid{grid-template-columns:1fr;max-width:370px;gap:24px}.reward-feature{min-height:442px;padding:22px}.reward-feature h3{font-size:36px}.reward-feature p{font-size:16px}.fair-grid{gap:18px}.fair-card{height:380px;padding:22px 14px}.fair-card:first-child{padding-top:50px}.fair-card:first-child img{top:185px}.fair-card img{max-width:calc(100% - 24px)}.fair-card h3{font-size:16px}.fair-card p{font-size:14px}.faq-section{padding-block:60px 90px}.faq-section>.landing-display{margin-bottom:36px}.pigeon-faq-question{font-size:22px!important;padding:20px 18px!important;gap:16px}.pigeon-faq-answer{padding:0 18px 22px!important}.pigeon-faq-question [data-slot=accordion-trigger-icon]{width:28px!important;height:28px!important;flex-shrink:0}}
 @media(max-width:380px){.fair-grid{grid-template-columns:1fr}.fair-card{max-width:280px;width:100%;margin-inline:auto}}
 @media(prefers-reduced-motion:reduce){.discover-pill img{animation:none}.discover-pill .discover-second-scene{display:none}.social-card{will-change:auto}}
+
+/* Discovery and social cards form one pinned scroll sequence. */
+.landing-display{font-size:clamp(64px,10vw,150px);line-height:.9;letter-spacing:0}
+.hero-heading,h1,h2,h3,.product-tab-title{letter-spacing:0}
+.discovery-sequence{padding-top:120px;padding-bottom:80px}
+.discovery-intro .discovery-line{margin:0;line-height:.9}
+.discovery-line--the{position:relative;left:-2px}
+.discovery-line--next{position:relative;left:6px;flex-shrink:0}
+.discovery-runway{height:300svh}
+.discovery-pin{position:sticky;top:5px;min-height:calc(100svh - 5px);padding-bottom:24px;background:#111}
+.discovery-next{display:flex;align-items:center;gap:60px;margin-bottom:28px}
+.discovery-live-asset{display:block;width:234px;height:104px;object-fit:contain}
+.discovery-pin .social-grid{align-items:start}
+.discovery-pin .social-card>img{max-height:min(400px,calc(100svh - 330px));min-height:140px}
+.discovery-pin .social-card h3{margin:18px 0 12px}
+.discovery-pin .social-card p{font-size:18px}
+.reward-feature h3{line-height:.95;letter-spacing:0}
+.reward-feature p{letter-spacing:0;line-height:1.45}
+.reward-feature>span{position:absolute;display:block;max-width:100%;pointer-events:none}
+.reward-feature iframe{display:block;width:100%;height:100%;border:0;background:transparent;pointer-events:none}
+.reward-topics-art{height:100%}
+.reward-opinions-art{height:auto}
+.reward-status-art{height:auto}
+.pigeon-faq-answer{font-size:18px!important;letter-spacing:0;line-height:1.5}
+@media(max-width:1000px){.discovery-sequence{padding-top:80px}.discovery-pin .social-card p{font-size:16px}}
+@media(max-width:700px){.landing-display{font-size:clamp(44px,10.5vw,74px)}.discovery-next{gap:24px;margin-bottom:24px}.discovery-live-asset{width:140px;height:63px}.discovery-runway{height:320svh}.discovery-pin .social-grid{display:grid;gap:0}.discovery-pin .social-card{grid-area:1/1;align-self:start}.discovery-pin .social-card>img{max-height:48svh;min-height:120px}.discovery-pin .social-card h3{font-size:22px}.discovery-pin .social-card p{font-size:16px}.discovery-sequence{padding-bottom:40px}}

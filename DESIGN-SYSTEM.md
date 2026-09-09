@@ -35,3 +35,10 @@ Event rows move continuously upward along two straight diagonal rails: bottom-le
 Discover, rewards, fair markets, and FAQ use Ruder Plakat display headings. All card titles, descriptions, questions and answers use PP Neue Montreal. FAQ questions are 22px; answers are 16px with 1.5 line height. Only one answer is open, starting with the first item.
 
 The social-card section pins while its three cards reveal sequentially with scroll progress. Desktop retains revealed cards side by side; mobile uses one card at a time. Reduced-motion and short viewports present the complete cards in regular flow. Supplied reward SVG animations are preserved. The static live-pill export is supplemented with exact Figma scene assets and its 4.2-second vertical scene transition.
+
+
+## Revised discovery and section motion
+
+Discovery uses three separate lines, 0 letter spacing and 0.9 line height, with a 150px desktop cap. THE is offset -2px and NEXT +6px for optical alignment. NEXT and the corrected live SVG pin 5px below the viewport top with the social cards. Only card one is initially visible; cards two and three reveal over separate scroll intervals before the combined section releases.
+
+The corrected social SVGs retain their internal animation. Reward SVGs play a single iteration in isolated SVG documents when entering view, and restart only after leaving and returning. The opinion artwork adds 16 units of top viewBox space. Reward titles use 0.95 line height, and reward descriptions use zero tracking. Fair-market cards and the FAQ wrapper slide up on entry. FAQ answers are 18px with zero tracking and 1.5 line height.
