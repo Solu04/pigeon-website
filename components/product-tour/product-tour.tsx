@@ -14,7 +14,7 @@ const tabs = [
 /** Render sources are supplied explicitly so a tab never displays another tab’s screen. */
 export function ProductTour({renders}:{renders:ProductRenders}) {
   const [active,setActive]=useState<ProductTabId>('join');
-  return <section className="product-tour" aria-label="Discover Pigeon">
+  return <section id="features" className="product-tour" aria-label="Discover Pigeon">
     <div className="site-container"><Tabs orientation="vertical" value={active} onValueChange={value=>setActive(value as ProductTabId)} className="product-tabs">
       <div className="product-render-stage">
         {tabs.map(tab=><TabsContent key={tab.id} value={tab.id} className="product-render-panel">

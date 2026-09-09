@@ -1,3 +1,4 @@
+import { Footer } from '@/components/landing/footer';
 import { NewSections } from '@/components/landing/new-sections';
 import { EventsSection } from '@/components/events/events-section';
 import { WaitlistProvider } from '@/components/waitlist/waitlist-provider';
@@ -11,4 +12,4 @@ const renders: ProductRenders = {
   profile: { src: '/images/renders/profile.svg', alt: 'Track your positions and prediction history on your profile' },
 };
 
-export default function Home() { return <WaitlistProvider><main><Hero /><ProductTour renders={renders} /><EventsSection /><NewSections /></main></WaitlistProvider>; }
+export default function Home() { return <WaitlistProvider><main><Hero /><ProductTour renders={renders} /><EventsSection /><NewSections /></main><Footer /></WaitlistProvider>; }
