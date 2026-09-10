@@ -5,7 +5,7 @@ import {WaitlistButton} from '@/components/waitlist/waitlist-button';
 import {FaqSection} from '@/components/landing/faq-section';
 import {Footer} from '@/components/landing/footer';
 import {TeamMarquee} from '@/components/landing/team-marquee';
-export const metadata:Metadata={title:'About Pigeon Arena',description:'Meet Pigeon Arena: prediction markets, public sentiment, and community conversation.'};
+export const metadata:Metadata={title:'About',description:'Learn how Pigeon Arena turns predictions, public sentiment, and community conversation into a social way to understand what happens next.',openGraph:{title:'About Pigeon Arena',description:'Discover the mission, vision, and people behind Pigeon Arena.',images:[{url:'/images/meta/about-opengraph.png',width:1280,height:696,alt:'About Pigeon Arena'}]},twitter:{card:'summary_large_image',title:'About Pigeon Arena',description:'Discover the mission, vision, and people behind Pigeon Arena.',images:['/images/meta/about-opengraph.png']}};
 export default function About(){
  return <WaitlistProvider><main className="about-page">
  <div className="about-pink"><SiteHeader light/>
