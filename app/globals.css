@@ -261,3 +261,30 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-r
 }
 
 .site-header--light .navigation a{color:#000}.site-header--light .navigation a:hover{color:#e94b3e}
+
+/* Operations follows the contract-system reading layout throughout. */
+.operations-page{position:relative;background:#111;color:#fff}
+.operations-intro{padding-top:200px;text-align:center}
+.operations-eyebrow{margin:0 0 50px;font-size:20px;line-height:1.2;letter-spacing:0}
+.operations-intro h1{margin:0;font-size:clamp(64px,10vw,128px);line-height:.85;letter-spacing:0}
+.operations-summary{max-width:550px;margin:45px auto 0;font-size:20px;line-height:1.4;letter-spacing:0}
+.operations-content{padding-top:270px;padding-bottom:200px}
+.operations-reading-column{max-width:550px;margin:0 auto}
+.operations-reading-column section+section{margin-top:160px}
+.operations-reading-column h2{font-family:var(--body-font);font-size:40px;font-weight:500;line-height:1.15;letter-spacing:0;margin:0 0 48px}
+.operations-reading-column p,.operations-reading-column ul{font-size:20px;line-height:1.4;letter-spacing:0;margin:0 0 20px}
+.operations-reading-column ul{padding-left:28px;list-style:disc}
+.operations-reading-column li+li{margin-top:20px}
+.operations-reading-column strong{font-weight:700}
+.operations-reading-column h3{font-family:var(--body-font);font-size:24px;line-height:1.25;font-weight:500;letter-spacing:0;margin:36px 0 20px}
+.operations-reading-column section>:last-child{margin-bottom:0}
+@media(max-width:767px){
+ .operations-intro{padding-top:155px}.operations-eyebrow{font-size:17px;margin-bottom:36px}
+ .operations-intro h1{font-size:clamp(54px,15vw,100px)}
+ .operations-summary{font-size:17px;line-height:1.5;margin-top:32px}
+ .operations-content{padding-top:110px;padding-bottom:80px}
+ .operations-reading-column section+section{margin-top:80px}
+ .operations-reading-column h2{font-size:30px;margin-bottom:28px}
+ .operations-reading-column p,.operations-reading-column ul{font-size:17px;line-height:1.5}
+ .operations-reading-column h3{font-size:22px}
+}
