@@ -220,3 +220,44 @@ body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-r
  .falling-sticker-position{position:absolute;aspect-ratio:1;transform:translateX(-50%)}
  .falling-sticker{display:block;width:100%;height:100%;object-fit:contain;opacity:0;will-change:transform}
 }
+
+.about-pink{position:relative;background:#ffcde6;color:#000;overflow:hidden}
+.site-header--light{top:50px}.site-header--light .navigation{background:#fff;color:#000}.site-header--light .header-cta{color:#000}
+.about-intro{text-align:center;padding-top:230px}
+.about-eyebrow{font-size:20px;margin:0 0 50px}
+.about-intro h1{font-size:clamp(68px,10vw,128px);line-height:.85;color:#ff62b1}
+.about-copy-card{max-width:754px;margin:120px auto 0;padding:36px 40px;border-radius:20px;background:white;text-align:center;color:#3c3c3c}
+.about-copy-card p{margin:0;font-size:20px;line-height:1.4;letter-spacing:0}
+.about-statement{padding-top:250px;text-align:center}
+.about-statement h2{font-size:clamp(54px,7.5vw,96px);line-height:.85}
+.about-statement .about-copy-card{margin-top:60px;padding-block:48px}
+.about-operate{display:inline-flex;gap:15px;margin-top:28px;color:#000;font-size:20px;font-weight:600}
+.about-team{padding:250px 0 160px;overflow:hidden;text-align:center}
+.about-team h2{font-size:clamp(54px,7.5vw,96px);margin-bottom:55px}
+.team-marquee-row{overflow:hidden;margin-bottom:20px}
+.team-marquee-track{display:flex;width:max-content;animation:team-scroll 35s linear infinite}
+.team-marquee-row:nth-child(2) .team-marquee-track{animation-direction:reverse;animation-duration:40s}
+.team-marquee-copy{display:flex;gap:55px;padding-right:55px;flex-shrink:0}
+.team-marquee-copy span{font-size:clamp(42px,6.64vw,85px);font-weight:500;color:#676767;white-space:nowrap;letter-spacing:-.02em}
+.about-team.is-paused .team-marquee-track{animation-play-state:paused}
+.team-motion-toggle{border:0;background:none;color:#555;text-decoration:underline;text-underline-offset:4px;font-size:13px;margin-top:14px}
+@keyframes team-scroll{to{transform:translateX(-50%)}}
+.about-invite{background:#ebc8d9;padding:116px var(--page-gutter)}
+.about-invite-card{max-width:1075px;margin:auto;min-height:441px;display:flex;justify-content:space-between;align-items:center;gap:50px;background:#fff;border-radius:53px;padding:65px 70px}
+.about-invite-copy{max-width:430px}
+.about-invite-copy h2{font-family:var(--body-font);font-size:64px;line-height:1.1;font-weight:500;margin:0 0 30px}
+.about-invite-copy p{font-size:20px;line-height:1.4;color:#3c3c3c;margin:0 0 30px;letter-spacing:0}
+.about-invite .waitlist-cta{background:#000;max-width:322px;height:80px;font-size:24px}
+.about-sticker-card{position:relative;width:274px;height:296px;flex-shrink:0;border:3px solid #000;border-radius:20px;background:#fff265;overflow:hidden}
+.about-sticker{position:absolute;object-fit:contain}
+.about-sticker-0{width:144px;height:144px;left:133px;top:111px}.about-sticker-1{width:95px;height:95px;left:60px;top:165px}.about-sticker-2{width:154px;height:154px;left:63px;top:191px}.about-sticker-3{width:140px;height:140px;left:-28px;top:132px;transform:rotate(-12deg)}.about-sticker-4{width:104px;height:104px;left:-16px;top:213px}.about-sticker-5{width:160px;height:160px;left:152px;top:185px}
+@media(max-width:767px){
+ .site-header--light{top:20px}.about-intro{padding-top:155px}.about-eyebrow{margin-bottom:36px;font-size:17px}
+ .about-intro h1{font-size:clamp(54px,14vw,90px)}.about-copy-card{padding:28px 22px;margin-top:60px}
+ .about-copy-card p{font-size:17px;line-height:1.5}.about-statement{padding-top:110px}.about-statement .about-copy-card{padding:28px 22px;margin-top:40px}
+ .about-team{padding:110px 0 80px}.team-marquee-copy{gap:32px;padding-right:32px}
+ .about-invite{padding:60px var(--page-gutter)}.about-invite-card{padding:32px 24px;border-radius:28px;flex-direction:column;gap:40px;align-items:stretch}
+ .about-invite-copy h2{font-size:42px}.about-invite-copy p{font-size:17px}.about-invite .waitlist-cta{font-size:20px;height:64px}.about-sticker-card{align-self:center;max-width:100%}
+}
+
+.site-header--light .navigation a{color:#000}.site-header--light .navigation a:hover{color:#e94b3e}
