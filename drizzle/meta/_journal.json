@@ -8,6 +8,13 @@
       "when": 1788839400000,
       "tag": "0000_pigeon_waitlist",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1789048258826,
+      "tag": "0001_nice_silver_sable",
+      "breakpoints": true
     }
   ]
 }

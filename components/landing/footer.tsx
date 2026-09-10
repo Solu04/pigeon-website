@@ -22,7 +22,7 @@ export function Footer(){
   <div className="footer-join" onPointerMove={follow} onPointerLeave={reset} onPointerCancel={reset} onFocus={()=>look(0,20)} onBlur={reset}><WaitlistButton/></div>
   <div className="footer-links">
    <nav aria-label="Footer product"><h3>Product</h3><a href="/#features">Features</a><a href="#faq-heading">FAQ</a><button onClick={()=>setDialog('waitlist')}>Waitlist</button></nav>
-   <nav aria-label="Footer company"><h3>Company</h3><a href="/about">About</a><span>Contact</span><a href="/operations">Operations</a></nav>
+   <nav aria-label="Footer company"><h3>Company</h3><a href="/about">About</a><button onClick={()=>setDialog('waitlist')}>Contact</button><a href="/operations">Operations</a></nav>
    <nav aria-label="Footer legal"><h3>Legal</h3><span>Privacy Policy</span><span>Terms of Service</span></nav>
   </div>
   <div className="footer-socials" aria-label="Social media">{[['x','X'],['instagram','Instagram'],['tiktok','TikTok'],['whatsapp','WhatsApp']].map(([icon,label])=><span key={icon} aria-label={label}><img src={'/images/footer/'+icon+'.svg'} width={16} height={16} alt={label}/></span>)}</div>

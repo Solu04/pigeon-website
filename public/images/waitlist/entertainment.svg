@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="clapperboard">
+<path id="Vector" d="M1.66602 7.00008C1.66602 4.48592 1.66602 3.22885 2.44706 2.44779C3.22812 1.66675 4.48519 1.66675 6.99935 1.66675H8.99935C11.5135 1.66675 12.7706 1.66675 13.5516 2.44779C14.3327 3.22885 14.3327 4.48592 14.3327 7.00008V9.00008C14.3327 11.5142 14.3327 12.7713 13.5516 13.5523C12.7706 14.3334 11.5135 14.3334 8.99935 14.3334H6.99935C4.48519 14.3334 3.22812 14.3334 2.44706 13.5523C1.66602 12.7713 1.66602 11.5142 1.66602 9.00008V7.00008Z" stroke="white"/>
+<path id="Vector_2" d="M2 5.33333H14.6667" stroke="white"/>
+<path id="Vector_3" d="M4 5.33333L7.66667 1.66667" stroke="white"/>
+<path id="Vector_4" d="M8.66602 5.33341L12.3327 1.66675" stroke="white"/>
+<path id="Vector_5" d="M4.33398 11.6667H7.00065" stroke="white" stroke-linecap="round"/>
+<path id="Vector_6" d="M4.33398 9H10.334" stroke="white" stroke-linecap="round"/>
+</g>
+</svg>
