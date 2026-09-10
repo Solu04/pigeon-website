@@ -1,19 +1,52 @@
 "use client";
-import type { CSSProperties } from 'react';
+import {useEffect,useRef,type CSSProperties} from 'react';
 const artwork=[
-  {name:'medallion',zone:0,x:17.79,y:57.13,size:218,delay:0},
-  {name:'conversation',zone:0,x:27.58,y:59.06,size:96,delay:90},
-  {name:'coin32',zone:0,x:23.12,y:67.97,size:95,delay:160},
-  {name:'arena',zone:0,x:32.70,y:74.90,size:267,delay:230},
-  {name:'coin76',zone:1,x:43.62,y:71.64,size:129,delay:0},
-  {name:'reward',zone:1,x:51.95,y:74.39,size:221,delay:100},
-  {name:'wallet',zone:2,x:65.64,y:72.38,size:171.464,delay:180},
-  {name:'conversation',zone:2,x:67.39,y:56.92,size:66,delay:0},
-  {name:'topics',zone:2,x:76.36,y:60.23,size:215,delay:90},
-  {name:'coin4',zone:2,x:74.24,y:72.35,size:65,delay:260},
+ {name:'playful_yes_no_badge_sticker',zone:0,x:295,y:578,size:250,mx:8,bottom:-18,angle:-15},
+ {name:'55_yes_blue_burst_sticker',zone:0,x:441,y:716,size:180,mx:30,bottom:-8,angle:12},
+ {name:'say_it_first_sticker',zone:2,x:1104,y:597,size:250,mx:73,bottom:-20,angle:16},
+ {name:'hot_take_comic_sticker',zone:1,x:662,y:752,size:220,mx:48,bottom:-16,angle:-8},
+ {name:'who_wins_ballot_box_sticker',zone:1,x:919,y:752,size:220,mx:91,bottom:-12,angle:24},
+ {name:'live_market_trend_sticker',zone:0,x:466,y:594,size:140,mx:19,bottom:36,angle:12},
+ {name:'join_the_flock_sticker_badge',zone:2,x:1122,y:722,size:160,mx:62,bottom:30,angle:-17},
+ {name:'what_drops_next_sticker',zone:2,x:994,y:528,size:100,mx:83,bottom:57,angle:-12},
+ {name:'crowd_says_yes_sticker_badge',zone:0,x:281,y:722,size:140,mx:3,bottom:59,angle:19},
+ {name:'football_match_sticker_badge',zone:2,x:1292,y:668,size:180,mx:39,bottom:55,angle:18},
 ];
-export function HeroIllustrations({bursts}:{bursts:number[]}) {
-  return <div className="hero-artwork" aria-hidden="true">{artwork.map((item,index)=><div key={index} className={'artwork-position artwork-'+item.name} style={{'--x':item.x+'%','--y':item.y+'%','--asset-size':item.size+'px','--asset-fluid':item.size/15.12+'vw','--delay':item.delay+'ms'} as CSSProperties}>
-    {bursts[item.zone]>0&&<div key={bursts[item.zone]} className="artwork-reveal"><img src={'/images/'+item.name+'.png'} alt="" draggable={false} width={512} height={512}/></div>}
-  </div>)}</div>;
+export function HeroIllustrations({bursts}:{bursts:number[]}){
+ const mobile=useRef<HTMLDivElement>(null);
+ const played=useRef(false);
+ useEffect(()=>{
+  const layer=mobile.current;if(!layer)return;
+  const media=matchMedia('(max-width:767px)');
+  let cancelled=false;
+  const animations:Animation[]=[];
+  async function start(){
+   if(!media.matches||played.current)return;
+
+   await Promise.all(Array.from(layer!.querySelectorAll('img')).map(img=>img.decode().catch(()=>{})));
+   if(cancelled||played.current)return;
+   played.current=true;
+   layer!.querySelectorAll<HTMLElement>('.falling-sticker').forEach((item,index)=>{
+    const a=artwork[index],drift=index%2===0?-26:24;
+    const height=layer!.getBoundingClientRect().height;
+    const transform=(x:number,y:number,angle:number)=>`translate3d(${x}px,${y}px,0) rotate(${angle}deg)`;
+    animations.push(item.animate([
+     {transform:transform(drift,-height-200,a.angle-40),opacity:1,offset:0,easing:'cubic-bezier(.45,0,1,1)'},
+     {transform:transform(-drift*.2,0,a.angle+10),opacity:1,offset:.55,easing:'cubic-bezier(0,0,.4,1)'},
+     {transform:transform(drift*.15,-48-index%3*8,a.angle-9),offset:.7,easing:'cubic-bezier(.5,0,1,1)'},
+     {transform:transform(2,0,a.angle+4),offset:.84,easing:'ease-out'},
+     {transform:transform(-2,-12,a.angle-3),offset:.91,easing:'ease-in'},
+     {transform:transform(0,0,a.angle),opacity:1,offset:1}
+    ],{duration:1400+index%3*90,delay:160+index*85,fill:'both'}));
+   });
+  }
+  start();media.addEventListener('change',start);
+  return()=>{cancelled=true;media.removeEventListener('change',start);animations.forEach(a=>a.cancel());};
+ },[]);
+ return <>
+  <div className="hero-artwork hero-stickers-desktop" aria-hidden="true">{artwork.map((item,index)=><div key={item.name} className="artwork-position" style={{'--x':item.x/1512*100+'%','--y':item.y/982*100+'%','--asset-size':item.size+'px','--asset-fluid':item.size/15.12+'vw','--delay':index%3*80+'ms'} as CSSProperties}>
+   {bursts[item.zone]>0&&<div key={bursts[item.zone]} className="artwork-reveal"><img src={'/images/stickers/'+item.name+'.png'} alt="" draggable={false} width={1280} height={1280}/></div>}
+  </div>)}</div>
+  <div ref={mobile} className="hero-stickers-mobile" aria-hidden="true">{artwork.map((item,index)=><div key={item.name} className="falling-sticker-position" style={{left:item.mx+'%',bottom:item.bottom+'px',width:(index<5?'clamp(110px,31vw,155px)':'clamp(85px,25vw,125px)')}}><img className="falling-sticker" src={'/images/stickers/'+item.name+'.png'} width={1280} height={1280} alt="" draggable={false}/></div>)}</div>
+ </>;
 }

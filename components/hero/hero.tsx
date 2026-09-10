@@ -12,7 +12,7 @@ export function Hero() {
   const dialogOpen=useRef(false);
   useEffect(()=>{dialogOpen.current=dialog!==null},[dialog]);
   function reveal(e: PointerEvent<HTMLElement>) {
-    if(dialogOpen.current || (e.target as HTMLElement).closest('a,button,input')) return;
+    if(window.innerWidth<768 || dialogOpen.current || (e.target as HTMLElement).closest('a,button,input')) return;
     const rect=e.currentTarget.getBoundingClientRect();
     const zone=Math.min(2,Math.max(0,Math.floor((e.clientX-rect.left)/rect.width*3)));
     const now=performance.now();
@@ -28,9 +28,9 @@ export function Hero() {
       <nav className="navigation" aria-label="Main navigation"><a href="#home" aria-current="page">Home</a><span aria-hidden="true"/><button onClick={()=>setDialog('about')}>About</button></nav>
       <button className="header-cta" onClick={()=>setDialog('waitlist')}>Join Waitlist</button>
     </header>
-    <div className="hero-title-area"><h1 id="hero-heading" className="hero-heading"><span>The World</span><span>Happens on</span><span>Pigeon.</span></h1></div>
-    <HeroIllustrations bursts={bursts}/>
-    <WaitlistButton />
+    <div className="hero-title-area"><h1 id="hero-heading" className="hero-heading"><span>The World</span><span>Happens on</span><span>Pigeon.</span></h1><WaitlistButton /></div>
+    <HeroIllustrations bursts={bursts}/><div className="hero-desktop-cta"><WaitlistButton /></div>
+
 
   </section>;
 }
