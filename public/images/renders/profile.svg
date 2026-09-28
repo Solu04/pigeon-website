@@ -3,17 +3,17 @@
 svg { overflow: visible; }
 @keyframes kf_profile_-1_transform_0 {
   0% {
-    transform: translateX(0px);
+    transform: translateX(15px) translateY(15px) translateX(0px);
   }
   23.2% {
     animation-timing-function: ease-out;
-    transform: translateX(0px);
+    transform: translateX(15px) translateY(15px) translateX(0px);
   }
   29.2% {
-    transform: translateX(-16px);
+    transform: translateX(15px) translateY(15px) translateX(-16px);
   }
   100% {
-    transform: translateX(-16px);
+    transform: translateX(15px) translateY(15px) translateX(-16px);
   }
 }
 @keyframes kf_profile_-1_opacity_0 {
@@ -340,7 +340,7 @@ svg { overflow: visible; }
 }
 </style>
 <g id="Profile">
-<g id="profile_-1">
+<g id="profile_-1" transform="translate(15 15)">
 <g clip-path="url(#clip0_206_3583)">
 <rect width="430" height="932" rx="43" id="profile_-1_bg_0" fill="#111111">
 </rect>
@@ -381,7 +381,7 @@ svg { overflow: visible; }
 </g>
 <rect x="-7.5" y="-7.5" width="445" height="947" rx="50.5" stroke="black" stroke-width="15"/>
 </g>
-<g id="profile_-2" opacity="0">
+<g id="profile_-2" opacity="0" transform="translate(15 15)">
 <g clip-path="url(#clip2_206_3583)">
 <rect width="430" height="932" rx="43" id="profile_-2_bg_0" fill="#111111">
 </rect>
@@ -459,7 +459,7 @@ svg { overflow: visible; }
 </g>
 <rect x="-7.5" y="-7.5" width="445" height="947" rx="50.5" stroke="black" stroke-width="15"/>
 </g>
-<g id="profile_-3" opacity="0">
+<g id="profile_-3" opacity="0" transform="translate(15 15)">
 <g clip-path="url(#clip4_206_3583)">
 <rect width="430" height="932" rx="43" id="profile_-3_bg_0" fill="#111111">
 </rect>

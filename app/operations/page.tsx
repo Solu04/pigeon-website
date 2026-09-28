@@ -7,8 +7,8 @@ import { Footer } from '@/components/landing/footer';
 export const metadata: Metadata = {
   title: 'How Pigeon Arena Works',
   description: 'Understand Pigeon Arena contracts, market pricing, trading positions, outcome resolution, multi-choice markets, and fees.',
-  openGraph: { title:'How Pigeon Arena Works', description:'Understand Pigeon Arena contracts, pricing, market resolution, and fees.', images:[{url:'/images/meta/operations-opengraph.png',width:1280,height:696,alt:'Pigeon Arena operations'}] },
-  twitter: { card:'summary_large_image', title:'How Pigeon Arena Works', description:'Understand Pigeon Arena contracts, pricing, market resolution, and fees.', images:['/images/meta/operations-opengraph.png'] },
+  openGraph: { title:'How Pigeon Arena Works', description:'Understand Pigeon Arena contracts, pricing, market resolution, and fees.', images:[{url:'/images/meta/opengraph.png',width:2400,height:1260,alt:'Pigeon Arena'}] },
+  twitter: { card:'summary_large_image', title:'How Pigeon Arena Works', description:'Understand Pigeon Arena contracts, pricing, market resolution, and fees.', images:['/images/meta/opengraph.png'] },
 };
 
 export default function Operations() {
