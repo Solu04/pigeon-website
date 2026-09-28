@@ -58,7 +58,7 @@ export function ProductTour({renders}:{renders:ProductRenders}) {
       <div className="site-container product-tabs">
         <div className="product-render-stage">
           {tabs.map((tab,index)=><div key={tab.id} id={`feature-panel-${tab.id}`} role="tabpanel" aria-hidden={activeIndex!==index} className="product-render-panel" data-active={activeIndex===index||undefined}>
-            <img className="product-render-image" src={renders[tab.id].src} alt={renders[tab.id].alt} width={611} height={511}/>
+            <span className="product-render-asset"><img className="product-render-image" src={renders[tab.id].src} alt={renders[tab.id].alt} width={460} height={962}/></span>
           </div>)}
         </div>
         <div className="product-tab-list" role="tablist" aria-label="Pigeon features">
