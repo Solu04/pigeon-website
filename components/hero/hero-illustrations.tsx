@@ -48,14 +48,12 @@ export function HeroIllustrations({bursts,onDesktopIntroComplete}:{bursts:number
  useEffect(()=>{
   const layer=desktop.current;if(!layer)return;
   const desktopMedia=matchMedia('(min-width:768px)');
-  const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)');
   let cancelled=false;
   const animations:Animation[]=[];
   let completionTimer=0;
   async function start(){
    if(!desktopMedia.matches||desktopPlayed.current)return;
    desktopPlayed.current=true;
-   if(reduceMotion.matches){completionTimer=window.setTimeout(onDesktopIntroComplete,120);return;}
    const stickers=Array.from(layer!.querySelectorAll<HTMLImageElement>('.desktop-falling-sticker'));
    await Promise.all(stickers.map(img=>img.decode().catch(()=>{})));
    if(cancelled)return;
