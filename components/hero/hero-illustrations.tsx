@@ -87,7 +87,7 @@ export function HeroIllustrations({bursts,onDesktopIntroComplete}:{bursts:number
  },[onDesktopIntroComplete]);
  return <>
   <div className="hero-artwork hero-stickers-desktop" aria-hidden="true">
-   <div ref={desktop} className="hero-desktop-intro">{artwork.map(item=><div key={item.name} className="artwork-position desktop-intro-position" style={{'--x':item.x/1512*100+'%','--y':item.y/982*100+'%','--asset-size':item.size+'px','--asset-fluid':item.size/15.12+'vw'} as CSSProperties}><img className="desktop-falling-sticker" src={'/images/stickers/'+item.name+'.png'} alt="" draggable={false} width={1280} height={1280}/></div>)}</div>
+   <div ref={desktop} className="hero-desktop-intro">{artwork.map(item=><div key={item.name} className="artwork-position desktop-intro-position" style={{'--x':item.x/1512*100+'%','--intro-bottom':item.bottom+'px','--asset-size':item.size+'px','--asset-fluid':item.size/15.12+'vw'} as CSSProperties}><img className="desktop-falling-sticker" src={'/images/stickers/'+item.name+'.png'} alt="" draggable={false} width={1280} height={1280}/></div>)}</div>
    <div className="hero-desktop-hover">{artwork.map((item,index)=><div key={item.name} className="artwork-position" style={{'--x':item.x/1512*100+'%','--y':item.y/982*100+'%','--asset-size':item.size+'px','--asset-fluid':item.size/15.12+'vw','--delay':index%3*80+'ms'} as CSSProperties}>
     {bursts[item.zone]>0&&<div key={bursts[item.zone]} className="artwork-reveal"><img src={'/images/stickers/'+item.name+'.png'} alt="" draggable={false} width={1280} height={1280}/></div>}
    </div>)}</div>
