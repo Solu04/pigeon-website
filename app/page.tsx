@@ -8,10 +8,10 @@ import { ProductTour, type ProductRenders } from '@/components/product-tour/prod
 import { getRequestOrigin, getSocialImage } from '@/lib/request-origin';
 
 const renders: ProductRenders = {
-  join: { src: '/images/renders/join.svg?v=20260928b', alt: 'Join Pigeon and create your account' },
-  predictions: { src: '/images/renders/predictions.svg?v=20260928b', alt: 'Explore predictions and trade on real-world outcomes' },
-  arena: { src: '/images/renders/arena.svg?v=20260928b', alt: 'Share takes and join conversations in Pigeon Arena' },
-  profile: { src: '/images/renders/profile.svg?v=20260928b', alt: 'Track your positions and prediction history on your profile' },
+  join: { src: '/videos/features/onboarding.mp4', alt: 'Join Pigeon and create your account' },
+  predictions: { src: '/videos/features/predictions.mp4', alt: 'Explore predictions and trade on real-world outcomes' },
+  arena: { src: '/videos/features/arena.mp4', alt: 'Share takes and join conversations in Pigeon Arena' },
+  profile: { src: '/videos/features/profile.mp4', alt: 'Track your positions and prediction history on your profile' },
 };
 
 export async function generateMetadata():Promise<Metadata>{
