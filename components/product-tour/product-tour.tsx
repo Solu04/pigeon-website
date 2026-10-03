@@ -17,7 +17,6 @@ const easeOut = (value:number) => 1 - Math.pow(1 - value, 3);
 
 export function ProductTour({renders}:{renders:ProductRenders}) {
   const sectionRef = useRef<HTMLElement>(null);
-  const stickyRef = useRef<HTMLDivElement>(null);
   const frameRef = useRef<number | null>(null);
   const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
   const [progress,setProgress] = useState(0);
@@ -27,8 +26,10 @@ export function ProductTour({renders}:{renders:ProductRenders}) {
     frameRef.current = null;
     const section = sectionRef.current;
     if (!section) return;
+    const rect = section.getBoundingClientRect();
     const travel = Math.max(1, section.offsetHeight - window.innerHeight);
-    setProgress(clamp(-section.getBoundingClientRect().top / travel));
+    setProgress(clamp(-rect.top / travel));
+    setIsVisible(rect.top < window.innerHeight && rect.bottom > 0);
   },[]);
 
   useEffect(() => {
@@ -44,19 +45,6 @@ export function ProductTour({renders}:{renders:ProductRenders}) {
       if (frameRef.current !== null) cancelAnimationFrame(frameRef.current);
     };
   },[updateProgress]);
-
-  useEffect(() => {
-    const sticky = stickyRef.current;
-    if (!sticky || !('IntersectionObserver' in window)) {
-      setIsVisible(true);
-      return;
-    }
-    const observer = new IntersectionObserver(([entry]) => {
-      setIsVisible(entry.isIntersecting && entry.intersectionRatio >= .15);
-    },{threshold:[0,.15,.4]});
-    observer.observe(sticky);
-    return () => observer.disconnect();
-  },[]);
 
   const phase = progress * (tabs.length - 1);
   const activeIndex = Math.min(tabs.length - 1, Math.floor(phase + .5));
@@ -74,11 +62,16 @@ export function ProductTour({renders}:{renders:ProductRenders}) {
     let cancelled = false;
     const playActiveVideo = () => {
       if (cancelled) return;
+      activeVideo.muted = true;
+      activeVideo.defaultMuted = true;
+      if (activeVideo.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) {
+        activeVideo.addEventListener('canplay',playActiveVideo,{once:true});
+        activeVideo.load();
+        return;
+      }
       activeVideo.currentTime = 0;
       void activeVideo.play().catch(() => {
-        if (!cancelled && activeVideo.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) {
-          activeVideo.addEventListener('canplay',playActiveVideo,{once:true});
-        }
+        if (!cancelled) activeVideo.addEventListener('canplay',playActiveVideo,{once:true});
       });
     };
 
@@ -99,11 +92,11 @@ export function ProductTour({renders}:{renders:ProductRenders}) {
   };
 
   return <section ref={sectionRef} id="features" className="product-tour" aria-label="Discover Pigeon">
-    <div ref={stickyRef} className="product-tour-sticky">
+    <div className="product-tour-sticky">
       <div className="site-container product-tabs">
         <div className="product-render-stage">
           {tabs.map((tab,index)=><div key={tab.id} id={`feature-panel-${tab.id}`} role="tabpanel" aria-hidden={activeIndex!==index} className="product-render-panel" data-active={activeIndex===index||undefined}>
-            <span className="product-render-asset"><video ref={(node)=>{videoRefs.current[index]=node;if(node){node.muted=true;node.defaultMuted=true}}} className="product-render-video" src={renders[tab.id].src} aria-label={renders[tab.id].alt} width={920} height={1924} muted playsInline loop autoPlay={activeIndex===index&&isVisible} preload={activeIndex===index?'auto':'none'}/></span>
+            <span className="product-render-asset"><video ref={(node)=>{videoRefs.current[index]=node;if(node){node.muted=true;node.defaultMuted=true}}} className="product-render-video" src={renders[tab.id].src} aria-label={renders[tab.id].alt} width={920} height={1924} muted playsInline loop autoPlay={activeIndex===index&&isVisible} preload={Math.abs(index-activeIndex)<=1?'auto':'metadata'}/></span>
           </div>)}
         </div>
         <div className="product-tab-list" role="tablist" aria-label="Pigeon features">
