@@ -321,3 +321,10 @@ h2.footer-heading{grid-column:1;grid-row:1/3;font-size:clamp(80px,10vw,128px)}
 .flock-success{align-self:center;background:#222;border-radius:20px;padding:32px;font-size:20px;line-height:1.5}.flock-success p{margin:0 0 16px}.flock-success .form-submit{margin-top:16px;width:100%}
 .flock-dialog [data-slot=dialog-description],.flock-form label,.flock-interests legend,.flock-form input,.flock-interests>p,.amount-hint,.interest-option span,.flock-form .form-note,.flock-success{letter-spacing:.005em}
 @media(max-width:767px){.pigeon-dialog.flock-dialog{grid-template-columns:1fr;gap:24px;padding:24px!important;width:calc(100% - 24px)!important;max-height:calc(100dvh - 24px)}.flock-intro>img{margin-bottom:22px}.flock-dialog [data-slot=dialog-title]{font-size:48px;margin-bottom:20px}.flock-dialog [data-slot=dialog-description]{font-size:17px}.waitlist-form.flock-form{padding:20px;margin:0}.flock-form label,.flock-interests legend{font-size:14px}.interest-option{padding:10px}.flock-dialog .flock-intro{padding-right:12px}}
+
+/* Pigeon-display H1/H2 line reveal. Line masks preserve the heading's own box and typography. */
+.heading-measure-token{display:inline!important;white-space:pre!important;font:inherit!important;color:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important}
+[data-heading-reveal]>.heading-line-mask{display:block;width:100%;overflow:hidden;perspective:560px;perspective-origin:50% 46%}
+[data-heading-reveal] .heading-line{display:block;white-space:nowrap;transform-origin:50% 100%;transform-style:preserve-3d;backface-visibility:hidden;will-change:transform}
+[data-heading-reveal-state=done] .heading-line{will-change:auto}
+@media(prefers-reduced-motion:reduce){[data-heading-reveal] .heading-line{opacity:1!important;transform:none!important;will-change:auto}}
