@@ -103,7 +103,7 @@ export function ProductTour({renders}:{renders:ProductRenders}) {
       <div className="site-container product-tabs">
         <div className="product-render-stage">
           {tabs.map((tab,index)=><div key={tab.id} id={`feature-panel-${tab.id}`} role="tabpanel" aria-hidden={activeIndex!==index} className="product-render-panel" data-active={activeIndex===index||undefined}>
-            <span className="product-render-asset"><video ref={(node)=>{videoRefs.current[index]=node}} className="product-render-video" src={renders[tab.id].src} aria-label={renders[tab.id].alt} width={920} height={1924} muted playsInline preload={activeIndex===index?'metadata':'none'}/></span>
+            <span className="product-render-asset"><video ref={(node)=>{videoRefs.current[index]=node;if(node){node.muted=true;node.defaultMuted=true}}} className="product-render-video" src={renders[tab.id].src} aria-label={renders[tab.id].alt} width={920} height={1924} muted playsInline loop autoPlay={activeIndex===index&&isVisible} preload={activeIndex===index?'auto':'none'}/></span>
           </div>)}
         </div>
         <div className="product-tab-list" role="tablist" aria-label="Pigeon features">
