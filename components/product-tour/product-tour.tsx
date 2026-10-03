@@ -22,7 +22,6 @@ export function ProductTour({renders}:{renders:ProductRenders}) {
   const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
   const [progress,setProgress] = useState(0);
   const [isVisible,setIsVisible] = useState(false);
-  const [reducedMotion,setReducedMotion] = useState(false);
 
   const updateProgress = useCallback(() => {
     frameRef.current = null;
@@ -47,14 +46,6 @@ export function ProductTour({renders}:{renders:ProductRenders}) {
   },[updateProgress]);
 
   useEffect(() => {
-    const query = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const update = () => setReducedMotion(query.matches);
-    update();
-    query.addEventListener('change',update);
-    return () => query.removeEventListener('change',update);
-  },[]);
-
-  useEffect(() => {
     const sticky = stickyRef.current;
     if (!sticky || !('IntersectionObserver' in window)) {
       setIsVisible(true);
@@ -74,15 +65,30 @@ export function ProductTour({renders}:{renders:ProductRenders}) {
     videoRefs.current.forEach((video,index) => {
       if (!video) return;
       video.pause();
-      if (index !== activeIndex || !isVisible || reducedMotion) video.currentTime = 0;
+      if (index !== activeIndex || !isVisible) video.currentTime = 0;
     });
 
     const activeVideo = videoRefs.current[activeIndex];
-    if (!activeVideo || !isVisible || reducedMotion) return;
-    activeVideo.currentTime = 0;
-    void activeVideo.play().catch(() => undefined);
-    return () => activeVideo.pause();
-  },[activeIndex,isVisible,reducedMotion]);
+    if (!activeVideo || !isVisible) return;
+
+    let cancelled = false;
+    const playActiveVideo = () => {
+      if (cancelled) return;
+      activeVideo.currentTime = 0;
+      void activeVideo.play().catch(() => {
+        if (!cancelled && activeVideo.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) {
+          activeVideo.addEventListener('canplay',playActiveVideo,{once:true});
+        }
+      });
+    };
+
+    playActiveVideo();
+    return () => {
+      cancelled = true;
+      activeVideo.removeEventListener('canplay',playActiveVideo);
+      activeVideo.pause();
+    };
+  },[activeIndex,isVisible]);
 
   const moveTo = (index:number) => {
     const section = sectionRef.current;
