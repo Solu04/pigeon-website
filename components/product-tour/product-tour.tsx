@@ -50,8 +50,21 @@ export function ProductTour({renders}:{renders:ProductRenders}) {
   const activeIndex = Math.min(tabs.length - 1, Math.floor(phase + .5));
 
   useEffect(() => {
+    const primeVideo = (video:HTMLVideoElement) => {
+      video.muted = true;
+      video.defaultMuted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.controls = false;
+      video.setAttribute('muted','');
+      video.setAttribute('playsinline','');
+      video.setAttribute('webkit-playsinline','true');
+      video.removeAttribute('controls');
+    };
+
     videoRefs.current.forEach((video,index) => {
       if (!video) return;
+      primeVideo(video);
       video.pause();
       if (index !== activeIndex || !isVisible) video.currentTime = 0;
     });
@@ -60,25 +73,31 @@ export function ProductTour({renders}:{renders:ProductRenders}) {
     if (!activeVideo || !isVisible) return;
 
     let cancelled = false;
+    const retries:Array<ReturnType<typeof setTimeout>> = [];
     const playActiveVideo = () => {
-      if (cancelled) return;
-      activeVideo.muted = true;
-      activeVideo.defaultMuted = true;
-      if (activeVideo.readyState < HTMLMediaElement.HAVE_CURRENT_DATA) {
-        activeVideo.addEventListener('canplay',playActiveVideo,{once:true});
-        activeVideo.load();
-        return;
-      }
-      activeVideo.currentTime = 0;
-      void activeVideo.play().catch(() => {
-        if (!cancelled) activeVideo.addEventListener('canplay',playActiveVideo,{once:true});
-      });
+      if (cancelled || document.visibilityState === 'hidden') return;
+      primeVideo(activeVideo);
+      void activeVideo.play().catch(() => {});
     };
 
+    activeVideo.currentTime = 0;
+    if (activeVideo.readyState === HTMLMediaElement.HAVE_NOTHING) activeVideo.load();
+    ['loadedmetadata','loadeddata','canplay'].forEach((event) => activeVideo.addEventListener(event,playActiveVideo));
+    const resumePlayback = () => {
+      if (document.visibilityState === 'visible') playActiveVideo();
+    };
+    window.addEventListener('pageshow',resumePlayback);
+    window.addEventListener('focus',resumePlayback);
+    document.addEventListener('visibilitychange',resumePlayback);
     playActiveVideo();
+    [120,500,1200].forEach((delay) => retries.push(setTimeout(playActiveVideo,delay)));
     return () => {
       cancelled = true;
-      activeVideo.removeEventListener('canplay',playActiveVideo);
+      retries.forEach(clearTimeout);
+      ['loadedmetadata','loadeddata','canplay'].forEach((event) => activeVideo.removeEventListener(event,playActiveVideo));
+      window.removeEventListener('pageshow',resumePlayback);
+      window.removeEventListener('focus',resumePlayback);
+      document.removeEventListener('visibilitychange',resumePlayback);
       activeVideo.pause();
     };
   },[activeIndex,isVisible]);
@@ -96,7 +115,7 @@ export function ProductTour({renders}:{renders:ProductRenders}) {
       <div className="site-container product-tabs">
         <div className="product-render-stage">
           {tabs.map((tab,index)=><div key={tab.id} id={`feature-panel-${tab.id}`} role="tabpanel" aria-hidden={activeIndex!==index} className="product-render-panel" data-active={activeIndex===index||undefined}>
-            <span className="product-render-asset"><video ref={(node)=>{videoRefs.current[index]=node;if(node){node.muted=true;node.defaultMuted=true}}} className="product-render-video" src={renders[tab.id].src} aria-label={renders[tab.id].alt} width={920} height={1924} muted playsInline loop autoPlay={activeIndex===index&&isVisible} preload={Math.abs(index-activeIndex)<=1?'auto':'metadata'}/></span>
+            <span className="product-render-asset"><video ref={(node)=>{videoRefs.current[index]=node;if(node){node.muted=true;node.defaultMuted=true;node.playsInline=true;node.controls=false}}} className="product-render-video" src={renders[tab.id].src} aria-label={renders[tab.id].alt} width={920} height={1924} muted playsInline loop autoPlay={activeIndex===index} controls={false} disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" preload={Math.abs(index-activeIndex)<=1?'auto':'metadata'} onLoadedData={(event)=>{if(activeIndex===index&&isVisible){event.currentTarget.muted=true;void event.currentTarget.play().catch(()=>{})}}} onCanPlay={(event)=>{if(activeIndex===index&&isVisible){event.currentTarget.muted=true;void event.currentTarget.play().catch(()=>{})}}}/></span>
           </div>)}
         </div>
         <div className="product-tab-list" role="tablist" aria-label="Pigeon features">
