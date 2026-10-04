@@ -24,6 +24,10 @@ export function Footer(){
    <nav aria-label="Footer product"><h3>Product</h3><a href="/#features">Features</a><a href="#faq-heading">FAQ</a><button onClick={()=>setDialog('waitlist')}>Waitlist</button></nav>
    <nav aria-label="Footer company"><h3>Company</h3><a href="/about">About</a><button onClick={()=>setDialog('waitlist')}>Contact</button><a href="/operations">Operations</a></nav>
   </div>
-  <div className="footer-socials" aria-label="Social media">{[['x','X'],['instagram','Instagram'],['tiktok','TikTok'],['whatsapp','WhatsApp']].map(([icon,label])=><span key={icon} aria-label={label}><img src={'/images/footer/'+icon+'.svg'} width={16} height={16} alt={label}/></span>)}</div>
+  <div className="footer-socials" aria-label="Social media">
+   <a href="https://x.com/pigeonarena?s=11" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="/images/footer/x.svg" width={16} height={16} alt=""/></a>
+   <a href="https://www.instagram.com/pigeonarena?stkn=MWs3aXNiMndjMWU1NQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="/images/footer/instagram.svg" width={16} height={16} alt=""/></a>
+   <span aria-label="TikTok"><img src="/images/footer/tiktok.svg" width={16} height={16} alt=""/></span>
+  </div>
  </footer>;
 }

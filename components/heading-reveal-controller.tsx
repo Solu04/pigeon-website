@@ -97,7 +97,6 @@ export function HeadingRevealController(){
     let cancelled=false;
     let resizeTimer:ReturnType<typeof setTimeout>|undefined;
     const states=new Map<HTMLElement,HeadingState>();
-    const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const observer='IntersectionObserver' in window?new IntersectionObserver(entries=>{
       entries.forEach(entry=>{
         if(!entry.isIntersecting||entry.intersectionRatio<.24)return;
@@ -129,7 +128,7 @@ export function HeadingRevealController(){
         originalHtml:heading.innerHTML,
         accessibleText:(heading.innerText||heading.textContent||'').replace(/\s+/g,' ').trim(),
         originalAriaLabel:heading.getAttribute('aria-label'),
-        animated:reducedMotion||rect.bottom<=0,
+        animated:rect.bottom<=0,
         animations:[],
       };
       states.set(heading,state);
