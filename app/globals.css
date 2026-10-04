@@ -270,6 +270,7 @@ h2.footer-heading{grid-column:1;grid-row:1/3;font-size:clamp(80px,10vw,128px)}
  .about-team{padding:110px 0 80px}.team-marquee-copy{gap:32px;padding-right:32px}
  .about-invite{padding:60px var(--page-gutter)}.about-invite-card{padding:32px 24px;border-radius:28px;flex-direction:column;gap:40px;align-items:stretch}
  .about-invite-copy h2{font-size:42px}.about-invite-copy p{font-size:17px}.about-invite .waitlist-cta{font-size:20px;height:64px}.about-sticker-card{align-self:stretch;width:100%;max-width:none}
+ .about-sticker-0{left:auto;right:-3px}.about-sticker-5{left:auto;right:-38px}
 }
 
 .site-header--light .navigation a{color:#000}.site-header--light .navigation a:hover{color:#e94b3e}
@@ -325,5 +326,6 @@ h2.footer-heading{grid-column:1;grid-row:1/3;font-size:clamp(80px,10vw,128px)}
 /* Pigeon-display H1/H2 line reveal. Line masks preserve the heading's own box and typography. */
 .heading-measure-token{display:inline!important;white-space:pre!important;font:inherit!important;color:inherit!important;letter-spacing:inherit!important;text-transform:inherit!important}
 [data-heading-reveal]>.heading-line-mask{display:block;width:100%;overflow:hidden;perspective:560px;perspective-origin:50% 46%}
+@media(min-width:768px){[data-heading-reveal]>.heading-line-mask{overflow:visible;clip-path:inset(0 -240px)}}
 [data-heading-reveal] .heading-line{display:block;white-space:nowrap;transform-origin:50% 100%;transform-style:preserve-3d;backface-visibility:hidden;will-change:transform}
 [data-heading-reveal-state=done] .heading-line{will-change:auto}
