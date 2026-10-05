@@ -4,18 +4,28 @@ import {useEffect} from 'react';
 
 const HEADING_SELECTOR = 'h1, h2';
 const PIGEON_FONT_NAME = 'pigeon display';
-const FINAL_TRANSFORM = 'translate3d(0,0,0) rotateX(0deg) rotateZ(0deg) skewX(0deg)';
-const INITIAL_TRANSFORM = 'translate3d(0,18%,0) rotateX(-89deg) rotateZ(6deg) skewX(-2.5deg)';
+const FINAL_TRANSFORM = 'translate3d(0,0,0) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skewX(0deg)';
+const MOBILE_INITIAL_TRANSFORM = 'translate3d(0,18%,0) rotateX(-89deg) rotateY(0deg) rotateZ(6deg) skewX(-2.5deg)';
+const DESKTOP_INITIAL_TRANSFORM = 'translate3d(0,105%,0) rotateX(40deg) rotateY(20deg) rotateZ(0deg) skewX(20deg)';
 
-const revealKeyframes:Keyframe[] = [
-  {offset:0,opacity:0,transform:INITIAL_TRANSFORM},
-  {offset:.1,opacity:1,transform:INITIAL_TRANSFORM},
-  {offset:.26,opacity:1,transform:'translate3d(0,15%,0) rotateX(-80deg) rotateZ(5.4deg) skewX(-2.2deg)'},
-  {offset:.44,opacity:1,transform:'translate3d(0,11%,0) rotateX(-62deg) rotateZ(4.2deg) skewX(-1.7deg)'},
-  {offset:.62,opacity:1,transform:'translate3d(0,6.5%,0) rotateX(-38deg) rotateZ(2.5deg) skewX(-.9deg)'},
-  {offset:.8,opacity:1,transform:'translate3d(0,2.2%,0) rotateX(-16deg) rotateZ(.9deg) skewX(-.2deg)'},
+const mobileRevealKeyframes:Keyframe[] = [
+  {offset:0,opacity:0,transform:MOBILE_INITIAL_TRANSFORM},
+  {offset:.1,opacity:1,transform:MOBILE_INITIAL_TRANSFORM},
+  {offset:.26,opacity:1,transform:'translate3d(0,15%,0) rotateX(-80deg) rotateY(0deg) rotateZ(5.4deg) skewX(-2.2deg)'},
+  {offset:.44,opacity:1,transform:'translate3d(0,11%,0) rotateX(-62deg) rotateY(0deg) rotateZ(4.2deg) skewX(-1.7deg)'},
+  {offset:.62,opacity:1,transform:'translate3d(0,6.5%,0) rotateX(-38deg) rotateY(0deg) rotateZ(2.5deg) skewX(-.9deg)'},
+  {offset:.8,opacity:1,transform:'translate3d(0,2.2%,0) rotateX(-16deg) rotateY(0deg) rotateZ(.9deg) skewX(-.2deg)'},
   {offset:1,opacity:1,transform:FINAL_TRANSFORM},
 ];
+
+const desktopRevealKeyframes:Keyframe[] = [
+  {offset:0,opacity:1,transform:DESKTOP_INITIAL_TRANSFORM},
+  {offset:.55,opacity:1,transform:'translate3d(0,22%,0) rotateX(9deg) rotateY(4deg) rotateZ(0deg) skewX(4deg)'},
+  {offset:1,opacity:1,transform:FINAL_TRANSFORM},
+];
+
+function isDesktop(){return window.matchMedia('(min-width:768px)').matches}
+function initialTransform(){return isDesktop()?DESKTOP_INITIAL_TRANSFORM:MOBILE_INITIAL_TRANSFORM}
 
 type HeadingState = {
   originalHtml:string;
@@ -63,8 +73,8 @@ function measureRenderedLines(heading:HTMLElement) {
 
 function setLineState(heading:HTMLElement,done:boolean) {
   heading.querySelectorAll<HTMLElement>('.heading-line').forEach(line=>{
-    line.style.opacity=done?'1':'0';
-    line.style.transform=done?FINAL_TRANSFORM:INITIAL_TRANSFORM;
+    line.style.opacity=done||isDesktop()?'1':'0';
+    line.style.transform=done?FINAL_TRANSFORM:initialTransform();
   });
   heading.dataset.headingRevealState=done?'done':'pending';
 }
@@ -97,28 +107,44 @@ export function HeadingRevealController(){
     let cancelled=false;
     let resizeTimer:ReturnType<typeof setTimeout>|undefined;
     const states=new Map<HTMLElement,HeadingState>();
-    const observer='IntersectionObserver' in window?new IntersectionObserver(entries=>{
+    let observer:IntersectionObserver|null=null;
+    const animateHeading=(heading:HTMLElement,state:HeadingState)=>{
+      if(state.animated)return;
+      state.animated=true;
+      observer?.unobserve(heading);
+      heading.dataset.headingRevealState='running';
+      const desktop=isDesktop();
+      const lines=heading.querySelectorAll<HTMLElement>('.heading-line');
+      lines.forEach((line,index)=>{
+        const animation=line.animate(desktop?desktopRevealKeyframes:mobileRevealKeyframes,{duration:desktop?800:1350,delay:index*(desktop?100:115),easing:desktop?'cubic-bezier(.2, .715, .205, .99)':'cubic-bezier(.16, 1, .3, 1)',fill:'both'});
+        state.animations.push(animation);
+        void animation.finished.then(()=>{
+          line.style.opacity='1';
+          line.style.transform=FINAL_TRANSFORM;
+          animation.cancel();
+          if(index===lines.length-1)heading.dataset.headingRevealState='done';
+        }).catch(()=>{});
+      });
+    };
+    observer='IntersectionObserver' in window?new IntersectionObserver(entries=>{
       entries.forEach(entry=>{
         if(!entry.isIntersecting||entry.intersectionRatio<.24)return;
         const heading=entry.target as HTMLElement;
         const state=states.get(heading);
         if(!state||state.animated)return;
-        state.animated=true;
-        observer?.unobserve(heading);
-        heading.dataset.headingRevealState='running';
-        const lines=heading.querySelectorAll<HTMLElement>('.heading-line');
-        lines.forEach((line,index)=>{
-          const animation=line.animate(revealKeyframes,{duration:1350,delay:index*115,easing:'cubic-bezier(.16, 1, .3, 1)',fill:'both'});
-          state.animations.push(animation);
-          void animation.finished.then(()=>{
-            line.style.opacity='1';
-            line.style.transform=FINAL_TRANSFORM;
-            animation.cancel();
-            if(index===lines.length-1)heading.dataset.headingRevealState='done';
-          }).catch(()=>{});
-        });
+        if(heading.id==='hero-heading'&&!isDesktop()&&!document.documentElement.dataset.mobileHeroIntroStarted)return;
+        animateHeading(heading,state);
       });
     },{threshold:[0,.24,.5]}):null;
+
+    const onMobileHeroIntro=()=>{
+      const heading=document.getElementById('hero-heading');
+      if(!heading)return;
+      const state=states.get(heading);
+      const rect=heading.getBoundingClientRect();
+      if(state&&!state.animated&&rect.bottom>0&&rect.top<innerHeight)animateHeading(heading,state);
+    };
+    window.addEventListener('pigeon:mobile-hero-intro',onMobileHeroIntro);
 
     const prepare=(heading:HTMLElement)=>{
       if(states.has(heading)||!isPigeonHeading(heading))return;
@@ -183,6 +209,7 @@ export function HeadingRevealController(){
       observer?.disconnect();
       mutationObserver.disconnect();
       window.removeEventListener('resize',onResize);
+      window.removeEventListener('pigeon:mobile-hero-intro',onMobileHeroIntro);
       states.forEach((state,heading)=>{
         state.animations.forEach(animation=>animation.cancel());
         heading.innerHTML=state.originalHtml;

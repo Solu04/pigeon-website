@@ -25,9 +25,11 @@ export function HeroIllustrations({bursts,onDesktopIntroComplete}:{bursts:number
   async function start(){
    if(!media.matches||played.current)return;
 
-   await Promise.all(Array.from(layer!.querySelectorAll('img')).map(img=>img.decode().catch(()=>{})));
+   await Promise.all([document.fonts.ready,Promise.all(Array.from(layer!.querySelectorAll('img')).map(img=>img.decode().catch(()=>{})))]);
    if(cancelled||played.current)return;
    played.current=true;
+   document.documentElement.dataset.mobileHeroIntroStarted='true';
+   window.dispatchEvent(new Event('pigeon:mobile-hero-intro'));
    layer!.querySelectorAll<HTMLElement>('.falling-sticker').forEach((item,index)=>{
     const a=artwork[index],drift=index%2===0?-26:24;
     const height=layer!.getBoundingClientRect().height;
@@ -43,7 +45,7 @@ export function HeroIllustrations({bursts,onDesktopIntroComplete}:{bursts:number
    });
   }
   start();media.addEventListener('change',start);
-  return()=>{cancelled=true;media.removeEventListener('change',start);animations.forEach(a=>a.cancel());};
+  return()=>{cancelled=true;delete document.documentElement.dataset.mobileHeroIntroStarted;media.removeEventListener('change',start);animations.forEach(a=>a.cancel());};
  },[]);
  useEffect(()=>{
   const layer=desktop.current;if(!layer)return;
