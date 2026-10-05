@@ -132,19 +132,19 @@ export function HeadingRevealController(){
         const heading=entry.target as HTMLElement;
         const state=states.get(heading);
         if(!state||state.animated)return;
-        if(heading.id==='hero-heading'&&!isDesktop()&&!document.documentElement.dataset.mobileHeroIntroStarted)return;
+        if(heading.id==='hero-heading'&&!document.documentElement.dataset.heroIntroStarted)return;
         animateHeading(heading,state);
       });
     },{threshold:[0,.24,.5]}):null;
 
-    const onMobileHeroIntro=()=>{
+    const onHeroIntro=()=>{
       const heading=document.getElementById('hero-heading');
       if(!heading)return;
       const state=states.get(heading);
       const rect=heading.getBoundingClientRect();
       if(state&&!state.animated&&rect.bottom>0&&rect.top<innerHeight)animateHeading(heading,state);
     };
-    window.addEventListener('pigeon:mobile-hero-intro',onMobileHeroIntro);
+    window.addEventListener('pigeon:hero-intro',onHeroIntro);
 
     const prepare=(heading:HTMLElement)=>{
       if(states.has(heading)||!isPigeonHeading(heading))return;
@@ -209,7 +209,7 @@ export function HeadingRevealController(){
       observer?.disconnect();
       mutationObserver.disconnect();
       window.removeEventListener('resize',onResize);
-      window.removeEventListener('pigeon:mobile-hero-intro',onMobileHeroIntro);
+      window.removeEventListener('pigeon:hero-intro',onHeroIntro);
       states.forEach((state,heading)=>{
         state.animations.forEach(animation=>animation.cancel());
         heading.innerHTML=state.originalHtml;

@@ -1,468 +1,160 @@
 <svg width="437" height="195" viewBox="0 0 437 195" fill="none" xmlns="http://www.w3.org/2000/svg">
-<style>
-@keyframes kf_first_scene_transform_0 {
-  0% {
-    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-    transform: translateX(33.58px) translateY(20.148px) translateY(201.479px);
-  }
-  11.9% {
-    transform: translateX(33.58px) translateY(20.148px) translateY(0px);
-  }
-  35.71% {
-    animation-timing-function: ease-in-out;
-    transform: translateX(33.58px) translateY(20.148px) translateY(0px);
-  }
-  47.62% {
-    transform: translateX(33.58px) translateY(20.148px) translateY(-201.479px);
-  }
-  90.47% {
-    transform: translateX(33.58px) translateY(20.148px) translateY(-201.479px);
-  }
-  90.48% {
-    transform: translateX(33.58px) translateY(20.148px) translateY(201.479px);
-  }
-  100% {
-    transform: translateX(33.58px) translateY(20.148px) translateY(201.479px);
-  }
-}
-#first_scene {
-  transform-origin: 0 0;
-  animation: kf_first_scene_transform_0 4.2s linear infinite;
-}
-@keyframes kf_Vector_transform_0 {
-  0% {
-    transform: translateX(-0.039px) translateY(-0.161px) translateY(0px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  21.43% {
-    animation-timing-function: ease-in-out;
-    transform: translateX(-0.039px) translateY(-0.161px) translateY(0px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  27.38% {
-    transform: translateX(-0.039px) translateY(-0.161px) translateY(-38.617px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  27.39% {
-    transform: translateX(-0.039px) translateY(-0.161px) translateY(-38.617px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  27.4% {
-    transform: translateX(-0.039px) translateY(-0.161px) translateY(0px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  33.33% {
-    animation-timing-function: ease-in-out;
-    transform: translateX(-0.039px) translateY(-0.161px) translateY(0px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  39.29% {
-    transform: translateX(-0.039px) translateY(-0.161px) translateY(-38.617px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  39.3% {
-    transform: translateX(-0.039px) translateY(-0.161px) translateY(-38.617px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  39.31% {
-    transform: translateX(-0.039px) translateY(-0.161px) translateY(0px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  45.24% {
-    animation-timing-function: ease-in-out;
-    transform: translateX(-0.039px) translateY(-0.161px) translateY(0px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  51.19% {
-    transform: translateX(-0.039px) translateY(-0.161px) translateY(-38.617px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  90.47% {
-    transform: translateX(-0.039px) translateY(-0.161px) translateY(-38.617px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  90.48% {
-    transform: translateX(-0.039px) translateY(-0.161px) translateY(0px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  100% {
-    transform: translateX(-0.039px) translateY(-0.161px) translateY(0px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-}
-#Vector {
-  transform-origin: 0 0;
-  animation: kf_Vector_transform_0 4.2s linear infinite;
-}
-@keyframes kf_Vector_2_transform_0 {
-  0% {
-    transform: translateX(-0.039px) translateY(38.456px) translateY(0px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  21.43% {
-    animation-timing-function: ease-in-out;
-    transform: translateX(-0.039px) translateY(38.456px) translateY(0px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  27.38% {
-    transform: translateX(-0.039px) translateY(38.456px) translateY(-38.617px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  27.39% {
-    transform: translateX(-0.039px) translateY(38.456px) translateY(-38.617px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  27.4% {
-    transform: translateX(-0.039px) translateY(38.456px) translateY(0px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  33.33% {
-    animation-timing-function: ease-in-out;
-    transform: translateX(-0.039px) translateY(38.456px) translateY(0px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  39.29% {
-    transform: translateX(-0.039px) translateY(38.456px) translateY(-38.617px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  39.3% {
-    transform: translateX(-0.039px) translateY(38.456px) translateY(-38.617px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  39.31% {
-    transform: translateX(-0.039px) translateY(38.456px) translateY(0px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  45.24% {
-    animation-timing-function: ease-in-out;
-    transform: translateX(-0.039px) translateY(38.456px) translateY(0px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  51.19% {
-    transform: translateX(-0.039px) translateY(38.456px) translateY(-38.617px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  90.47% {
-    transform: translateX(-0.039px) translateY(38.456px) translateY(-38.617px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  90.48% {
-    transform: translateX(-0.039px) translateY(38.456px) translateY(0px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-  100% {
-    transform: translateX(-0.039px) translateY(38.456px) translateY(0px) rotate(-1.571rad) scaleX(1) skewX(0rad);
-  }
-}
-#Vector_2 {
-  transform-origin: 0 0;
-  animation: kf_Vector_2_transform_0 4.2s linear infinite;
-}
-@keyframes kf_Vector_3_transform_0 {
-  0% {
-    transform: translateX(0px) translateY(0px) translateY(0px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  28.57% {
-    animation-timing-function: ease-in-out;
-    transform: translateX(0px) translateY(0px) translateY(0px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  34.52% {
-    transform: translateX(0px) translateY(0px) translateY(38.617px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  34.54% {
-    transform: translateX(0px) translateY(0px) translateY(38.617px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  34.55% {
-    transform: translateX(0px) translateY(0px) translateY(0px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  40.48% {
-    animation-timing-function: ease-in-out;
-    transform: translateX(0px) translateY(0px) translateY(0px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  46.43% {
-    transform: translateX(0px) translateY(0px) translateY(38.617px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  46.44% {
-    transform: translateX(0px) translateY(0px) translateY(38.617px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  46.45% {
-    transform: translateX(0px) translateY(0px) translateY(0px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  52.38% {
-    animation-timing-function: ease-in-out;
-    transform: translateX(0px) translateY(0px) translateY(0px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  58.33% {
-    transform: translateX(0px) translateY(0px) translateY(38.617px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  90.47% {
-    transform: translateX(0px) translateY(0px) translateY(38.617px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  90.48% {
-    transform: translateX(0px) translateY(0px) translateY(0px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  100% {
-    transform: translateX(0px) translateY(0px) translateY(0px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-}
-#Vector_3 {
-  transform-origin: 0 0;
-  animation: kf_Vector_3_transform_0 4.2s linear infinite;
-}
-@keyframes kf_Vector_4_transform_0 {
-  0% {
-    transform: translateX(0px) translateY(-38.617px) translateY(0px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  28.57% {
-    animation-timing-function: ease-in-out;
-    transform: translateX(0px) translateY(-38.617px) translateY(0px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  34.52% {
-    transform: translateX(0px) translateY(-38.617px) translateY(38.617px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  34.54% {
-    transform: translateX(0px) translateY(-38.617px) translateY(38.617px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  34.55% {
-    transform: translateX(0px) translateY(-38.617px) translateY(0px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  40.48% {
-    animation-timing-function: ease-in-out;
-    transform: translateX(0px) translateY(-38.617px) translateY(0px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  46.43% {
-    transform: translateX(0px) translateY(-38.617px) translateY(38.617px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  46.44% {
-    transform: translateX(0px) translateY(-38.617px) translateY(38.617px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  46.45% {
-    transform: translateX(0px) translateY(-38.617px) translateY(0px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  52.38% {
-    animation-timing-function: ease-in-out;
-    transform: translateX(0px) translateY(-38.617px) translateY(0px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  58.33% {
-    transform: translateX(0px) translateY(-38.617px) translateY(38.617px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  90.47% {
-    transform: translateX(0px) translateY(-38.617px) translateY(38.617px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  90.48% {
-    transform: translateX(0px) translateY(-38.617px) translateY(0px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-  100% {
-    transform: translateX(0px) translateY(-38.617px) translateY(0px) rotate(1.571rad) scaleX(1) scaleY(-1) skewX(0rad);
-  }
-}
-#Vector_4 {
-  transform-origin: 0 0;
-  animation: kf_Vector_4_transform_0 4.2s linear infinite;
-}
-@keyframes kf_second_scene_transform_0 {
-  0% {
-    transform: translateX(33.58px) translateY(188.047px) translateY(0px);
-  }
-  35.71% {
-    animation-timing-function: ease-in-out;
-    transform: translateX(33.58px) translateY(188.047px) translateY(0px);
-  }
-  47.62% {
-    transform: translateX(33.58px) translateY(188.047px) translateY(-167.899px);
-  }
-  90.47% {
-    transform: translateX(33.58px) translateY(188.047px) translateY(-167.899px);
-  }
-  90.48% {
-    transform: translateX(33.58px) translateY(188.047px) translateY(0px);
-  }
-  100% {
-    transform: translateX(33.58px) translateY(188.047px) translateY(0px);
-  }
-}
-#second_scene {
-  transform-origin: 0 0;
-  animation: kf_second_scene_transform_0 4.2s linear infinite;
-}
-@keyframes kf__3_transform_0 {
-  0% {
-    transform: translateX(0px) translateY(0px) translateY(0px);
-  }
-  23.81% {
-    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-    transform: translateX(0px) translateY(0px) translateY(0px);
-  }
-  33.33% {
-    transform: translateX(0px) translateY(0px) translateY(-97.382px);
-  }
-  52.37% {
-    transform: translateX(0px) translateY(0px) translateY(-97.382px);
-  }
-  52.38% {
-    transform: translateX(0px) translateY(0px) translateY(0px);
-  }
-  100% {
-    transform: translateX(0px) translateY(0px) translateY(0px);
-  }
-}
-#_3 {
-  transform-origin: 0 0;
-  animation: kf__3_transform_0 4.2s linear infinite;
-}
-@keyframes kf__4_transform_0 {
-  0% {
-    transform: translateX(0px) translateY(97.381px) translateY(0px);
-  }
-  23.81% {
-    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-    transform: translateX(0px) translateY(97.381px) translateY(0px);
-  }
-  33.33% {
-    transform: translateX(0px) translateY(97.381px) translateY(-97.382px);
-  }
-  52.37% {
-    transform: translateX(0px) translateY(97.381px) translateY(-97.382px);
-  }
-  52.38% {
-    transform: translateX(0px) translateY(97.381px) translateY(0px);
-  }
-  100% {
-    transform: translateX(0px) translateY(97.381px) translateY(0px);
-  }
-}
-#_4 {
-  transform-origin: 0 0;
-  animation: kf__4_transform_0 4.2s linear infinite;
-}
-@keyframes kf_Frame_85_transform_0 {
-  0% {
-    transform: translateX(0px) translateY(117.53px) translateY(33.58px);
-  }
-  47.62% {
-    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-    transform: translateX(0px) translateY(117.53px) translateY(33.58px);
-  }
-  55.95% {
-    transform: translateX(0px) translateY(117.53px) translateY(0px);
-  }
-  90.47% {
-    transform: translateX(0px) translateY(117.53px) translateY(0px);
-  }
-  90.48% {
-    transform: translateX(0px) translateY(117.53px) translateY(33.58px);
-  }
-  100% {
-    transform: translateX(0px) translateY(117.53px) translateY(33.58px);
-  }
-}
-@keyframes kf_Frame_85_opacity_0 {
-  0% {
-    animation-timing-function: linear;
-    opacity: 0;
-  }
-  47.62% {
-    animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-    opacity: 0;
-  }
-  55.95% {
-    animation-timing-function: linear;
-    opacity: 1;
-  }
-  90.47% {
-    animation-timing-function: linear;
-    opacity: 1;
-  }
-  90.48% {
-    animation-timing-function: linear;
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-#Frame_85 {
-  transform-origin: 0 0;
-  animation:
-    kf_Frame_85_transform_0 4.2s linear infinite,
-    kf_Frame_85_opacity_0 4.2s linear infinite;
-}
-@keyframes kf_graph-clip_opacity_0 {
-  0% {
-    animation-timing-function: linear;
-    opacity: 0;
-  }
-  50% {
-    animation-timing-function: linear;
-    opacity: 0;
-  }
-  51.19% {
-    animation-timing-function: linear;
-    opacity: 1;
-  }
-  90.47% {
-    animation-timing-function: linear;
-    opacity: 1;
-  }
-  90.48% {
-    animation-timing-function: linear;
-    opacity: 0;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-#graph-clip {
-  animation: kf_graph-clip_opacity_0 4.2s linear infinite;
-}
-</style>
-<g id="discover_live_pill">
-<g clip-path="url(#clip0_156_563)">
-<rect width="436.538" height="194.763" rx="50.3698" id="discover_live_pill_bg_0" fill="#4079D1">
-</rect>
-<g id="first_scene" transform="translate(33.5796 20.1478)">
-<g id="Frame_84" transform="translate(0.000473742 6.8574e-05)">
-<text id="live_markets" fill="white" style="white-space: pre" xml:space="preserve" font-family="PP Neue Montreal" font-size="15.1109" font-weight="500" letter-spacing="-0.03em"><tspan x="0" y="14.4097">LIVE MARKETS</tspan></text>
-<circle id="Ellipse_215" transform="translate(108.395 3.96302)" cx="5.03698" cy="5.03698" r="5.03698" fill="#82FF53"/>
-</g>
-<text id="YES" transform="translate(0.000473742 33.5801)" fill="#111111" style="white-space: pre" xml:space="preserve" font-family="PP Neue Montreal" font-size="53.7278" font-weight="500" letter-spacing="-0.04em"><tspan x="0" y="51.2345">YES</tspan></text>
-<text id="_22_" transform="translate(142.715 33.5801)" fill="#82FF53" style="white-space: pre" xml:space="preserve" font-family="PP Neue Montreal" font-size="53.7278" font-weight="500" letter-spacing="-0.04em"><tspan x="0" y="51.2345">+22%</tspan></text>
-<text id="_-19_" transform="translate(134.321 99.061)" fill="#FE2C55" style="white-space: pre" xml:space="preserve" font-family="PP Neue Montreal" font-size="53.7278" font-weight="500" letter-spacing="-0.04em"><tspan x="0" y="51.2345">-19%</tspan></text>
-<text id="NO" transform="translate(8.39664 99.061)" fill="#111111" style="white-space: pre" xml:space="preserve" font-family="PP Neue Montreal" font-size="53.7278" font-weight="500" letter-spacing="-0.04em"><tspan x="0" y="51.2345">NO</tspan></text>
-<g id="Frame_88" clip-path="url(#clip1_156_563)" transform="translate(104.139 48.8523)">
-<path id="Vector" transform="translate(-0.0390625 -0.160889) rotate(-90)" d="M27.5235 0L23.4589 2.88988L27.7559 9.28447C29.2655 11.498 30.3106 12.4203 31.2979 12.9737V13.1581H0L4.46152e-07 18.2615H31.2979V18.5075C30.3106 18.9993 29.2655 19.9831 27.7559 22.1352L23.4589 28.5912L27.5235 31.4811L37.7773 18.5075V13.1581L27.5235 0Z" fill="#111111"/>
-<path id="Vector_2" transform="translate(-0.0390625 38.4561) rotate(-90)" d="M27.5235 0L23.4589 2.88988L27.7559 9.28447C29.2655 11.498 30.3106 12.4203 31.2979 12.9737V13.1581H0L4.46152e-07 18.2615H31.2979V18.5075C30.3106 18.9993 29.2655 19.9831 27.7559 22.1352L23.4589 28.5912L27.5235 31.4811L37.7773 18.5075V13.1581L27.5235 0Z" fill="#111111"/>
-</g>
-<g id="Frame_89" clip-path="url(#clip2_156_563)" transform="translate(94.0243 112.493)">
-<path id="Vector_3" transform="matrix(1.19249e-08 1 1 -1.19249e-08 9.71281e-05 -1.4085e-05)" d="M27.5235 0L23.4589 2.88988L27.7559 9.28447C29.2655 11.498 30.3106 12.4203 31.2979 12.9737V13.1581H0L4.46152e-07 18.2615H31.2979V18.5075C30.3106 18.9993 29.2655 19.9831 27.7559 22.1352L23.4589 28.5912L27.5235 31.4811L37.7773 18.5075V13.1581L27.5235 0Z" fill="#111111"/>
-<path id="Vector_4" transform="matrix(1.19249e-08 1 1 -1.19249e-08 -8.21955e-05 -38.6172)" d="M27.5235 0L23.4589 2.88988L27.7559 9.28447C29.2655 11.498 30.3106 12.4203 31.2979 12.9737V13.1581H0L4.46152e-07 18.2615H31.2979V18.5075C30.3106 18.9993 29.2655 19.9831 27.7559 22.1352L23.4589 28.5912L27.5235 31.4811L37.7773 18.5075V13.1581L27.5235 0Z" fill="#111111"/>
-</g>
-</g>
-<g id="second_scene" transform="translate(33.5796 188.047)">
-<g id="Frame_84_2" transform="translate(0.000473742 0.00035297)">
-<text id="CROWD_POSITION" fill="white" style="white-space: pre" xml:space="preserve" font-family="PP Neue Montreal" font-size="15.1109" font-weight="500" letter-spacing="-0.03em"><tspan x="0" y="14.4097">CROWD POSITION</tspan></text>
-</g>
-<g id="Group_7037" transform="translate(0.000473742 25.1847)">
-<text id="Yes" transform="translate(167.9 53.7278)" fill="white" style="white-space: pre" xml:space="preserve" font-family="PP Neue Montreal" font-size="25.1849" font-weight="500" letter-spacing="-0.02em"><tspan x="0" y="24.0162">Yes</tspan></text>
-<text id="_7" transform="translate(0.000473742 -8.73242e-05)" fill="#111111" style="white-space: pre" xml:space="preserve" font-family="PP Neue Montreal" font-size="80.5917" font-weight="500" letter-spacing="-0.02em"><tspan x="0" y="77.3518">7</tspan></text>
-<g id="Frame_80" clip-path="url(#clip3_156_563)" transform="translate(36.9392 -8.73242e-05)">
-<text id="_3" transform="translate(-0.000460956 -0.000499732)" fill="#111111" style="white-space: pre" xml:space="preserve" font-family="PP Neue Montreal" font-size="80.5917" font-weight="500" letter-spacing="-0.02em"><tspan x="0" y="77.3518">3</tspan></text>
-<text id="_4" transform="translate(-0.000251335 97.3811)" fill="#111111" style="white-space: pre" xml:space="preserve" font-family="PP Neue Montreal" font-size="80.5917" font-weight="500" letter-spacing="0em"><tspan x="0" y="77.3518">4</tspan></text>
-</g>
-<text id="_" transform="translate(83.9511 -8.73242e-05)" fill="#111111" style="white-space: pre" xml:space="preserve" font-family="PP Neue Montreal" font-size="80.5917" font-weight="500" letter-spacing="-0.02em"><tspan x="0" y="77.3518">%</tspan></text>
-</g>
-<g id="Frame_85" transform="translate(0.000473742 117.53)">
-<rect x="0.335799" y="0.335799" width="90.8935" height="30.1035" rx="14.6642" id="Frame_85_bg_0" fill="#82FF53" fill-opacity="0.33">
-</rect>
-<rect x="0.335799" y="0.335799" width="90.8935" height="30.1035" rx="14.6642" stroke="#82FF53" stroke-width="0.671597"/>
-<text id="_8pts_today" transform="translate(15.7825 7.38757)" fill="#111111" style="white-space: pre" xml:space="preserve" font-family="PP Neue Montreal" font-size="13.4319" font-weight="500" letter-spacing="-0.02em"><tspan x="0" y="12.8086">8pts today</tspan></text>
-</g>
-<g id="graph-clip" clip-path="url(#clip4_156_563)" transform="translate(225.139 42.9526)">
-<animate attributeName="width" values="0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 3.422; 6.765; 10.027; 13.205; 16.296; 19.299; 22.213; 25.035; 27.766; 30.405; 32.953; 35.41; 37.778; 40.056; 42.248; 44.354; 46.376; 48.318; 50.18; 51.966; 53.678; 55.318; 56.889; 58.394; 58.397; 58.4; 58.403; 58.406; 58.409; 58.412; 58.415; 58.418; 58.421; 58.424; 58.427; 58.43; 62.564; 66.192; 69.376; 72.172; 74.629; 76.791; 78.696; 80.377; 81.863; 83.177; 84.34; 85.371; 85.994; 86.568; 87.099; 87.589; 88.041; 88.459; 88.846; 89.202; 89.532; 89.836; 90.117; 90.375; 91.132; 91.698; 92.116; 92.419; 92.635; 92.784; 92.882; 92.943; 92.977; 92.994; 92.999; 92.999; 92.999; 92.999; 92.999; 92.999; 92.999; 92.999; 92.999; 92.999; 92.999; 92.999; 92.999; 92.999; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0; 0" keyTimes="0; 0.0099; 0.0198; 0.0298; 0.0397; 0.0496; 0.0595; 0.0694; 0.0794; 0.0893; 0.0992; 0.1091; 0.119; 0.127; 0.1349; 0.1429; 0.1508; 0.1587; 0.1667; 0.1746; 0.1825; 0.1905; 0.1984; 0.2063; 0.2143; 0.2163; 0.2183; 0.2202; 0.2222; 0.2242; 0.2262; 0.2282; 0.2302; 0.2321; 0.2341; 0.2361; 0.2381; 0.2411; 0.244; 0.247; 0.25; 0.253; 0.256; 0.2589; 0.2619; 0.2649; 0.2679; 0.2708; 0.2738; 0.2739; 0.274; 0.275; 0.276; 0.277; 0.2779; 0.2789; 0.2799; 0.2809; 0.2818; 0.2828; 0.2838; 0.2847; 0.2857; 0.2897; 0.2937; 0.2976; 0.3016; 0.3056; 0.3095; 0.3135; 0.3175; 0.3214; 0.3254; 0.3294; 0.3333; 0.3343; 0.3353; 0.3363; 0.3373; 0.3383; 0.3393; 0.3403; 0.3413; 0.3423; 0.3433; 0.3442; 0.3452; 0.3453; 0.3454; 0.3455; 0.3464; 0.3474; 0.3484; 0.3494; 0.3503; 0.3513; 0.3523; 0.3533; 0.3542; 0.3552; 0.3562; 0.3571; 0.3601; 0.3631; 0.3661; 0.369; 0.372; 0.375; 0.378; 0.381; 0.3839; 0.3869; 0.3899; 0.3929; 0.393; 0.3931; 0.3941; 0.395; 0.396; 0.397; 0.398; 0.3989; 0.3999; 0.4009; 0.4018; 0.4028; 0.4038; 0.4048; 0.4087; 0.4127; 0.4167; 0.4206; 0.4246; 0.4286; 0.4325; 0.4365; 0.4405; 0.4444; 0.4484; 0.4524; 0.4534; 0.4544; 0.4554; 0.4563; 0.4573; 0.4583; 0.4593; 0.4603; 0.4613; 0.4623; 0.4633; 0.4643; 0.4644; 0.4645; 0.4655; 0.4665; 0.4674; 0.4684; 0.4694; 0.4704; 0.4713; 0.4723; 0.4733; 0.4742; 0.4752; 0.4762; 0.4782; 0.4802; 0.4821; 0.4841; 0.4861; 0.4881; 0.4901; 0.4921; 0.494; 0.496; 0.498; 0.5; 0.501; 0.502; 0.503; 0.504; 0.505; 0.506; 0.5069; 0.5079; 0.5089; 0.5099; 0.5109; 0.5119; 0.5129; 0.5139; 0.5149; 0.5159; 0.5169; 0.5179; 0.5188; 0.5198; 0.5208; 0.5218; 0.5228; 0.5237; 0.5237; 0.5237; 0.5237; 0.5237; 0.5237; 0.5237; 0.5237; 0.5237; 0.5237; 0.5237; 0.5237; 0.5238; 0.5268; 0.5298; 0.5328; 0.5357; 0.5387; 0.5417; 0.5447; 0.5476; 0.5506; 0.5536; 0.5565; 0.5595; 0.5615; 0.5635; 0.5655; 0.5675; 0.5694; 0.5714; 0.5734; 0.5754; 0.5774; 0.5794; 0.5813; 0.5833; 0.5903; 0.5972; 0.6042; 0.6111; 0.6181; 0.625; 0.6319; 0.6389; 0.6458; 0.6528; 0.6597; 0.6667; 0.6865; 0.7063; 0.7262; 0.746; 0.7659; 0.7857; 0.8056; 0.8254; 0.8452; 0.8651; 0.8849; 0.9047; 0.9048; 0.9127; 0.9207; 0.9286; 0.9365; 0.9445; 0.9524; 0.9603; 0.9683; 0.9762; 0.9841; 0.9921; 1" dur="4.2s" calcMode="linear" repeatCount="indefinite" />
-<g id="Group_7038" transform="translate(-0.151367 -0.0410156)">
-<path id="Vector_1" transform="translate(0.546875)" d="M0 40.5797L3.66101 42.6204C14.1362 48.4596 19.3737 51.3791 24.1019 49.6335C24.2012 49.5968 24.3 49.5587 24.3983 49.5191C29.0738 47.6371 30.9936 41.9564 34.8332 30.595C36.033 27.0447 36.6329 25.2696 37.7561 23.8165C37.7811 23.7842 37.8062 23.7521 37.8315 23.7201C38.9709 22.2795 40.549 21.2693 43.7051 19.2488L46.6792 17.3449C49.3908 15.609 50.7466 14.7411 52.2025 14.3009C53.8104 13.8148 55.5084 13.7049 57.1655 13.9796C58.666 14.2283 60.1224 14.9142 63.0352 16.2859L67.9332 18.5925C69.3893 19.2783 70.4647 20.5765 70.8675 22.1348C72.2316 27.4133 79.6622 27.5909 81.2771 22.3837L81.6518 21.1755C81.9565 20.193 82.5182 19.3098 83.2788 18.6173L86.2066 15.9516C87.0717 15.1641 87.5042 14.7703 87.9607 14.4338C89.5334 13.2747 91.3874 12.5571 93.3307 12.3554C93.8947 12.2969 94.4796 12.2969 95.6495 12.2969C97.5781 12.2969 98.5424 12.2969 99.4202 12.4403C102.467 12.9381 105.162 14.6979 106.843 17.2868C107.327 18.0327 107.715 18.9156 108.491 20.6813L109.67 23.364L113.235 31.48C115.454 36.5303 121.312 38.8694 126.399 36.7364C127.129 36.4304 127.82 36.0397 128.459 35.5723L129.828 34.571C132.426 32.6699 133.725 31.7194 134.688 30.4574C135.65 29.1954 136.223 27.691 137.368 24.6822L140.307 16.9636C141.192 14.6401 141.634 13.4783 142.318 12.4526C143.002 11.4269 143.903 10.5715 145.707 8.86061L155.05 0" stroke="#67BD8C" stroke-width="1.91758"/>
-<path id="Vector_5" d="M16.1464 48.1266L2.866 41.018C1.56892 40.3237 0 41.2634 0 42.7347C0 52.9413 0 58.0447 2.86289 61.1825C3.51627 61.8986 4.26179 62.5249 5.07993 63.0449C8.66475 65.3233 13.6915 64.4426 23.745 62.6811L145.347 41.3759C146.983 41.0893 147.801 40.946 148.499 40.7248C152.543 39.4431 155.484 35.9421 156.048 31.7373C156.146 31.0115 156.146 30.1813 156.146 28.5209V2.93329C156.146 1.7841 154.796 1.16632 153.926 1.91758L151.706 3.83516L147.267 7.67032C145.284 9.38391 144.292 10.2407 143.535 11.294C143.486 11.3632 143.437 11.433 143.389 11.5034C142.657 12.5741 142.191 13.7989 141.258 16.2486L138.464 23.5865C137.319 26.5953 136.746 28.0996 135.783 29.3617C134.821 30.6237 133.522 31.5742 130.924 33.4752L129.555 34.4766C128.916 34.9439 128.225 35.3346 127.495 35.6406C122.408 37.7737 116.55 35.4345 114.331 30.3842L110.765 22.2683L109.587 19.5855C108.811 17.8198 108.423 16.937 107.939 16.191C106.258 13.6021 103.562 11.8424 100.516 11.3445C99.6381 11.2011 98.6738 11.2011 96.7452 11.2011C95.5754 11.2011 94.9905 11.2011 94.4264 11.2596C92.4831 11.4613 90.6291 12.1789 89.0564 13.3381C88.5999 13.6745 88.1674 14.0683 87.3024 14.8559L84.3746 17.5216C83.614 18.2141 83.0522 19.0973 82.7475 20.0798L82.3728 21.288C80.758 26.4952 73.3273 26.3175 71.9632 21.0391C71.5605 19.4808 70.4851 18.1825 69.029 17.4968L64.131 15.1902C61.2182 13.8184 59.7618 13.1326 58.2613 12.8838C56.6042 12.6091 54.9061 12.7191 53.2983 13.2052C51.8424 13.6453 50.4866 14.5133 47.775 16.2491L44.8545 18.1188C41.645 20.1734 40.0402 21.2008 38.8894 22.6724C37.7387 24.1441 37.1287 25.9492 35.9086 29.5595L31.7153 41.9674L31.7074 41.9907C29.5356 48.3971 22.135 51.3248 16.168 48.1382L16.1464 48.1266Z" fill="url(#paint0_linear_156_563)"/>
-</g>
-</g>
-</g>
-</g>
-<rect x="1.67899" y="1.67899" width="433.18" height="191.405" rx="48.6908" stroke="white" stroke-width="3.35799"/>
-</g>
-<defs>
-<linearGradient id="paint0_linear_156_563" x1="78.6208" y1="-1.09576" x2="78.6208" y2="54.2401" gradientUnits="userSpaceOnUse">
-<stop offset="0.0001" stop-color="#67BD8C" stop-opacity="0.0213964"/>
-<stop offset="0.0002" stop-color="#67BD8C" stop-opacity="0.0416667"/>
-<stop offset="0.0003" stop-color="#67BD8C" stop-opacity="0.25"/>
-<stop offset="0.0004" stop-color="#BEF5D6" stop-opacity="0.25"/>
-<stop offset="1" stop-color="#80D0A3" stop-opacity="0.03"/>
-</linearGradient>
-<clipPath id="clip0_156_563">
-<rect width="436.538" height="194.763" rx="50.3698" fill="white"/>
-</clipPath>
-<clipPath id="clip1_156_563">
-<rect width="31" height="34" fill="white"/>
-</clipPath>
-<clipPath id="clip2_156_563">
-<rect width="31.4811" height="37.7773" fill="white"/>
-</clipPath>
-<clipPath id="clip3_156_563">
-<rect width="48.6908" height="97.3816" fill="white"/>
-</clipPath>
-<clipPath id="clip4_156_563">
-<rect width="156" height="67" fill="white"/>
-</clipPath>
-</defs>
+  <defs>
+    <clipPath id="yesDigitClip"><rect x="106" y="82" width="20" height="28" rx="2"/></clipPath>
+    <clipPath id="noDigitClip"><rect x="311" y="82" width="20" height="28" rx="2"/></clipPath>
+    <clipPath id="chartClip"><rect x="22" y="90" width="393" height="72" rx="10"/></clipPath>
+    <linearGradient id="yesBar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#82FF53" stop-opacity="0.96"/>
+      <stop offset="1" stop-color="#B8FF9E" stop-opacity="0.96"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <style>
+      :root{--ease:cubic-bezier(.16,1,.3,1);--soft:cubic-bezier(.4,0,.2,1)}
+      text{font-family:"Inter",ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-kerning:normal;font-variant-numeric:tabular-nums}
+      .liveDot{transform-box:fill-box;transform-origin:center;animation:livePulse 6s ease-in-out infinite}
+      .sceneStats{transform-box:fill-box;transform-origin:center;animation:statsScene 6s var(--ease) infinite}
+      .sceneChart{transform-box:fill-box;transform-origin:center;animation:chartScene 6s var(--ease) infinite}
+      .yesUnitStack{animation:yesRoll 6s var(--ease) infinite}
+      .noUnitStack{animation:noRoll 6s var(--ease) infinite}
+      .yesBarFill{transform-origin:left center;transform-box:fill-box;animation:yesBarGrow 6s var(--ease) infinite}
+      .noBarFill{transform-origin:left center;transform-box:fill-box;animation:noBarShrink 6s var(--ease) infinite}
+      .yesDelta{animation:yesDelta 6s var(--ease) infinite}
+      .noDelta{animation:noDelta 6s var(--ease) infinite}
+      .yesCard{animation:yesCard 6s var(--ease) infinite;transform-box:fill-box;transform-origin:center}
+      .chartLine{stroke-dasharray:470;stroke-dashoffset:470;animation:drawChart 6s var(--ease) infinite}
+      .chartArea{opacity:0;animation:areaIn 6s var(--ease) infinite}
+      .endDot{animation:endDot 6s var(--ease) infinite;transform-box:fill-box;transform-origin:center}
+      .tickerChip{animation:tickerIn 6s var(--ease) infinite;transform-box:fill-box;transform-origin:center}
+      @keyframes livePulse{0%,100%{opacity:.95;transform:scale(1)}8%{opacity:.45;transform:scale(.72)}16%{opacity:1;transform:scale(1)}40%{opacity:.95}46%{opacity:.45;transform:scale(.72)}54%{opacity:1;transform:scale(1)}82%{opacity:.95}88%{opacity:.45;transform:scale(.72)}94%{opacity:1;transform:scale(1)}}
+      @keyframes statsScene{0%,44%{opacity:1;transform:translateY(0) scale(1)}52%{opacity:0;transform:translateY(-8px) scale(.985)}92%{opacity:0;transform:translateY(7px) scale(.985)}100%{opacity:1;transform:translateY(0) scale(1)}}
+      @keyframes chartScene{0%,46%{opacity:0;transform:translateY(9px) scale(.985)}56%,88%{opacity:1;transform:translateY(0) scale(1)}94%,100%{opacity:0;transform:translateY(-5px) scale(.992)}}
+      /* Units roll 1→2→3 and 9→8→7. Each row is 28px high. */
+      @keyframes yesRoll{0%,15%{transform:translateY(0)}23%,29%{transform:translateY(-28px)}37%,91%{transform:translateY(-56px)}100%{transform:translateY(0)}}
+      @keyframes noRoll{0%,15%{transform:translateY(0)}23%,29%{transform:translateY(-28px)}37%,91%{transform:translateY(-56px)}100%{transform:translateY(0)}}
+      @keyframes yesBarGrow{0%,15%{transform:scaleX(.61)}23%,29%{transform:scaleX(.62)}37%,91%{transform:scaleX(.63)}100%{transform:scaleX(.61)}}
+      @keyframes noBarShrink{0%,15%{transform:scaleX(.39)}23%,29%{transform:scaleX(.38)}37%,91%{transform:scaleX(.37)}100%{transform:scaleX(.39)}}
+      @keyframes yesDelta{0%,15%{opacity:.45;transform:translateY(0)}22%{opacity:1;transform:translateY(-2px)}29%{opacity:.55;transform:translateY(0)}36%{opacity:1;transform:translateY(-2px)}44%,100%{opacity:.8;transform:translateY(0)}}
+      @keyframes noDelta{0%,15%{opacity:.45;transform:translateY(0)}22%{opacity:1;transform:translateY(2px)}29%{opacity:.55;transform:translateY(0)}36%{opacity:1;transform:translateY(2px)}44%,100%{opacity:.75;transform:translateY(0)}}
+      @keyframes yesCard{0%,34%{filter:none;transform:scale(1)}39%{filter:url(#softGlow);transform:scale(1.015)}44%,100%{filter:none;transform:scale(1)}}
+      @keyframes drawChart{0%,55%{stroke-dashoffset:470}78%,91%{stroke-dashoffset:0}100%{stroke-dashoffset:470}}
+      @keyframes areaIn{0%,59%{opacity:0}72%,91%{opacity:.14}100%{opacity:0}}
+      @keyframes endDot{0%,73%{opacity:0;transform:scale(.5)}80%,88%{opacity:1;transform:scale(1)}91%{opacity:.85;transform:scale(.86)}100%{opacity:0;transform:scale(.5)}}
+      @keyframes tickerIn{0%,61%{opacity:0;transform:translateY(5px) scale(.96)}70%,90%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-3px) scale(.98)}}
+    </style>
+  </defs>
+
+  <!-- Base -->
+  <rect width="437" height="195" rx="18" fill="#4079D1"/>
+  <rect x="1" y="1" width="435" height="193" rx="17" stroke="white" stroke-opacity="0.07"/>
+
+  <!-- Header -->
+  <g>
+    <rect x="18" y="16" width="92" height="26" rx="10" fill="#111111" fill-opacity="0.20"/>
+    <circle class="liveDot" cx="31" cy="29" r="4" fill="#82FF53"/>
+    <text x="41" y="33" fill="white" font-size="11" font-weight="750" letter-spacing="0.8">LIVE NOW</text>
+    <text x="418" y="33" text-anchor="end" fill="white" fill-opacity="0.54" font-size="11" font-weight="600">MARKET</text>
+  </g>
+
+  <!-- Question -->
+  <text x="18" y="65" fill="white" font-size="17" font-weight="760" letter-spacing="-0.25">Will Tinubu win the next election</text>
+
+  <!-- SCENE 1: live stats -->
+  <g class="sceneStats">
+    <!-- YES card -->
+    <g class="yesCard">
+      <rect x="18" y="77" width="196" height="78" rx="13" fill="#111111" fill-opacity="0.17" stroke="white" stroke-opacity="0.08"/>
+      <g transform="translate(30 89)">
+        <rect width="43" height="21" rx="7" fill="#82FF53" fill-opacity="0.16"/>
+        <circle cx="10" cy="10.5" r="3" fill="#82FF53"/>
+        <text x="18" y="14" fill="#D9FFD0" font-size="10.5" font-weight="800" letter-spacing=".45">YES</text>
+      </g>
+
+      <text x="88" y="109" fill="white" font-size="27" font-weight="820" letter-spacing="-1.15">6</text>
+      <g clip-path="url(#yesDigitClip)">
+        <g class="yesUnitStack">
+          <text x="106" y="106" fill="white" font-size="27" font-weight="820" letter-spacing="-1.15">1</text>
+          <text x="106" y="134" fill="white" font-size="27" font-weight="820" letter-spacing="-1.15">2</text>
+          <text x="106" y="162" fill="white" font-size="27" font-weight="820" letter-spacing="-1.15">3</text>
+        </g>
+      </g>
+      <text x="124" y="109" fill="white" font-size="18" font-weight="760">%</text>
+      <g class="yesDelta">
+        <rect x="157" y="91" width="45" height="19" rx="7" fill="#82FF53" fill-opacity="0.12"/>
+        <path d="M165 103L169 99L173 103" stroke="#82FF53" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="177" y="104" fill="#C8FFB7" font-size="9.5" font-weight="760">+2.0</text>
+      </g>
+      <rect x="30" y="120" width="172" height="6" rx="3" fill="white" fill-opacity="0.09"/>
+      <rect class="yesBarFill" x="30" y="120" width="172" height="6" rx="3" fill="url(#yesBar)"/>
+      <text x="30" y="138" fill="white" fill-opacity="0.45" font-size="9.5" font-weight="600">buyers gaining</text>
+    </g>
+
+    <!-- NO card -->
+    <g>
+      <rect x="223" y="77" width="196" height="78" rx="13" fill="#111111" fill-opacity="0.13" stroke="white" stroke-opacity="0.07"/>
+      <g transform="translate(235 89)">
+        <rect width="42" height="21" rx="7" fill="#FE2C55" fill-opacity="0.14"/>
+        <circle cx="10" cy="10.5" r="3" fill="#FE2C55"/>
+        <text x="18" y="14" fill="#FFD9E1" font-size="10.5" font-weight="800" letter-spacing=".45">NO</text>
+      </g>
+
+      <text x="293" y="109" fill="white" font-size="27" font-weight="820" letter-spacing="-1.15">3</text>
+      <g clip-path="url(#noDigitClip)">
+        <g class="noUnitStack">
+          <text x="311" y="106" fill="white" font-size="27" font-weight="820" letter-spacing="-1.15">9</text>
+          <text x="311" y="134" fill="white" font-size="27" font-weight="820" letter-spacing="-1.15">8</text>
+          <text x="311" y="162" fill="white" font-size="27" font-weight="820" letter-spacing="-1.15">7</text>
+        </g>
+      </g>
+      <text x="329" y="109" fill="white" font-size="18" font-weight="760">%</text>
+      <g class="noDelta">
+        <rect x="362" y="91" width="45" height="19" rx="7" fill="#FE2C55" fill-opacity="0.10"/>
+        <path d="M370 99L374 103L378 99" stroke="#FF8AA1" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"/>
+        <text x="382" y="104" fill="#FFC0CC" font-size="9.5" font-weight="760">−2.0</text>
+      </g>
+      <rect x="235" y="120" width="172" height="6" rx="3" fill="white" fill-opacity="0.09"/>
+      <rect class="noBarFill" x="235" y="120" width="172" height="6" rx="3" fill="#FE2C55" fill-opacity="0.74"/>
+      <text x="235" y="138" fill="white" fill-opacity="0.40" font-size="9.5" font-weight="600">buyers easing</text>
+    </g>
+  </g>
+
+  <!-- SCENE 2: chart continuation -->
+  <g class="sceneChart">
+    <!-- summary chips -->
+    <g transform="translate(18 76)">
+      <rect width="91" height="25" rx="9" fill="#111111" fill-opacity="0.16"/>
+      <circle cx="12" cy="12.5" r="3" fill="#82FF53"/>
+      <text x="21" y="16" fill="#D9FFD0" font-size="10.5" font-weight="760">YES</text>
+      <text x="55" y="16" fill="white" font-size="11" font-weight="800">63%</text>
+    </g>
+    <g transform="translate(116 76)">
+      <rect width="82" height="25" rx="9" fill="#111111" fill-opacity="0.12"/>
+      <circle cx="12" cy="12.5" r="3" fill="#FE2C55"/>
+      <text x="21" y="16" fill="#FFD9E1" font-size="10.5" font-weight="760">NO</text>
+      <text x="50" y="16" fill="white" font-size="11" font-weight="800">37%</text>
+    </g>
+    <text x="418" y="93" text-anchor="end" fill="white" fill-opacity="0.44" font-size="9.5" font-weight="650">LAST 30 MIN</text>
+
+    <!-- chart surface -->
+    <g clip-path="url(#chartClip)">
+      <line x1="22" y1="114" x2="415" y2="114" stroke="white" stroke-opacity="0.06"/>
+      <line x1="22" y1="138" x2="415" y2="138" stroke="white" stroke-opacity="0.055"/>
+      <line x1="92" y1="104" x2="92" y2="163" stroke="white" stroke-opacity="0.035"/>
+      <line x1="164" y1="104" x2="164" y2="163" stroke="white" stroke-opacity="0.035"/>
+      <line x1="236" y1="104" x2="236" y2="163" stroke="white" stroke-opacity="0.035"/>
+      <line x1="308" y1="104" x2="308" y2="163" stroke="white" stroke-opacity="0.035"/>
+      <path class="chartArea" d="M22 151 C53 149 66 143 88 144 C113 145 127 132 151 136 C176 140 190 126 214 129 C238 132 248 118 273 120 C298 122 310 109 336 113 C361 117 378 99 414 103 L414 164 L22 164 Z" fill="#82FF53"/>
+      <path class="chartLine" d="M22 151 C53 149 66 143 88 144 C113 145 127 132 151 136 C176 140 190 126 214 129 C238 132 248 118 273 120 C298 122 310 109 336 113 C361 117 378 99 414 103" stroke="#B5FFA0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle class="endDot" cx="414" cy="103" r="4.5" fill="#82FF53" stroke="#4079D1" stroke-width="3"/>
+    </g>
+    <g class="tickerChip" transform="translate(350 112)">
+      <rect width="68" height="24" rx="8" fill="#E9FFE2"/>
+      <text x="10" y="16" fill="#214B18" font-size="10" font-weight="820">63%</text>
+      <path d="M42 14L47 9L52 14" stroke="#2F7A20" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="57" y="16" fill="#2F7A20" font-size="9" font-weight="780">2</text>
+    </g>
+    <text x="22" y="178" fill="white" fill-opacity="0.43" font-size="9.2" font-weight="600">Live probability movement</text>
+  </g>
 </svg>

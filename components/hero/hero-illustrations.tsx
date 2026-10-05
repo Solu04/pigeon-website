@@ -22,14 +22,13 @@ export function HeroIllustrations({bursts,onDesktopIntroComplete}:{bursts:number
   const media=matchMedia('(max-width:767px)');
   let cancelled=false;
   const animations:Animation[]=[];
+  let syncFrame=0;
   async function start(){
    if(!media.matches||played.current)return;
 
    await Promise.all([document.fonts.ready,Promise.all(Array.from(layer!.querySelectorAll('img')).map(img=>img.decode().catch(()=>{})))]);
    if(cancelled||played.current)return;
    played.current=true;
-   document.documentElement.dataset.mobileHeroIntroStarted='true';
-   window.dispatchEvent(new Event('pigeon:mobile-hero-intro'));
    layer!.querySelectorAll<HTMLElement>('.falling-sticker').forEach((item,index)=>{
     const a=artwork[index],drift=index%2===0?-26:24;
     const height=layer!.getBoundingClientRect().height;
@@ -43,9 +42,21 @@ export function HeroIllustrations({bursts,onDesktopIntroComplete}:{bursts:number
      {transform:transform(0,0,a.angle),opacity:1,offset:1}
     ],{duration:1400+index%3*90,delay:160+index*85,fill:'both'}));
    });
+   const announceWhenVisible=()=>{
+    if(cancelled)return;
+    const firstAnimationStarted=typeof animations[0]?.currentTime==='number'&&animations[0].currentTime>=160;
+    const layerRect=layer!.getBoundingClientRect();
+    const visible=firstAnimationStarted&&Array.from(layer!.querySelectorAll<HTMLElement>('.falling-sticker')).some(item=>{
+     const rect=item.getBoundingClientRect();
+     return rect.bottom>=layerRect.top&&rect.top<layerRect.bottom;
+    });
+    if(visible){document.documentElement.dataset.heroIntroStarted='true';window.dispatchEvent(new Event('pigeon:hero-intro'));return;}
+    syncFrame=requestAnimationFrame(announceWhenVisible);
+   };
+   syncFrame=requestAnimationFrame(announceWhenVisible);
   }
   start();media.addEventListener('change',start);
-  return()=>{cancelled=true;delete document.documentElement.dataset.mobileHeroIntroStarted;media.removeEventListener('change',start);animations.forEach(a=>a.cancel());};
+  return()=>{cancelled=true;delete document.documentElement.dataset.heroIntroStarted;cancelAnimationFrame(syncFrame);media.removeEventListener('change',start);animations.forEach(a=>a.cancel());};
  },[]);
  useEffect(()=>{
   const layer=desktop.current;if(!layer)return;
@@ -53,11 +64,12 @@ export function HeroIllustrations({bursts,onDesktopIntroComplete}:{bursts:number
   let cancelled=false;
   const animations:Animation[]=[];
   let completionTimer=0;
+  let syncFrame=0;
   async function start(){
    if(!desktopMedia.matches||desktopPlayed.current)return;
    desktopPlayed.current=true;
    const stickers=Array.from(layer!.querySelectorAll<HTMLImageElement>('.desktop-falling-sticker'));
-   await Promise.all(stickers.map(img=>img.decode().catch(()=>{})));
+   await Promise.all([document.fonts.ready,Promise.all(stickers.map(img=>img.decode().catch(()=>{})))]);
    if(cancelled)return;
    const height=layer!.getBoundingClientRect().height;
    stickers.forEach((item,index)=>{
@@ -72,6 +84,18 @@ export function HeroIllustrations({bursts,onDesktopIntroComplete}:{bursts:number
      {transform:transform(0,0,a.angle),opacity:1,offset:1}
     ],{duration:1450+index%3*90,delay:120+index*80,fill:'both'}));
    });
+   const announceWhenVisible=()=>{
+    if(cancelled)return;
+    const firstAnimationStarted=typeof animations[0]?.currentTime==='number'&&animations[0].currentTime>=120;
+    const layerRect=layer!.getBoundingClientRect();
+    const visible=firstAnimationStarted&&stickers.some(item=>{
+     const rect=item.getBoundingClientRect();
+     return rect.bottom>=layerRect.top&&rect.top<layerRect.bottom;
+    });
+    if(visible){document.documentElement.dataset.heroIntroStarted='true';window.dispatchEvent(new Event('pigeon:hero-intro'));return;}
+    syncFrame=requestAnimationFrame(announceWhenVisible);
+   };
+   syncFrame=requestAnimationFrame(announceWhenVisible);
    await Promise.all(animations.map(animation=>animation.finished.catch(()=>{})));
    if(cancelled)return;
    completionTimer=window.setTimeout(async()=>{
@@ -85,7 +109,7 @@ export function HeroIllustrations({bursts,onDesktopIntroComplete}:{bursts:number
    },1000);
   }
   start();desktopMedia.addEventListener('change',start);
-  return()=>{cancelled=true;desktopMedia.removeEventListener('change',start);window.clearTimeout(completionTimer);animations.forEach(animation=>animation.cancel());};
+  return()=>{cancelled=true;delete document.documentElement.dataset.heroIntroStarted;cancelAnimationFrame(syncFrame);desktopMedia.removeEventListener('change',start);window.clearTimeout(completionTimer);animations.forEach(animation=>animation.cancel());};
  },[onDesktopIntroComplete]);
  return <>
   <div className="hero-artwork hero-stickers-desktop" aria-hidden="true">
