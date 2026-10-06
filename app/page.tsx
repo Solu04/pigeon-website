@@ -17,7 +17,7 @@ const renders: ProductRenders = {
 export async function generateMetadata():Promise<Metadata>{
  const origin=await getRequestOrigin();
  const image=getSocialImage(origin);
- return {title:'Predict What Happens Next',description:'Join Pigeon Arena to predict real-world events, back your views, follow live markets, and discover what the crowd believes.',openGraph:{title:'Pigeon Arena — Predict What Happens Next',description:'Predict real-world events, back your views, and see what the crowd believes.',url:origin,siteName:'Pigeon Arena',type:'website',images:[{url:image,width:2400,height:1260,alt:'Pigeon Arena'}]},twitter:{card:'summary_large_image',title:'Pigeon Arena — Predict What Happens Next',description:'Predict real-world events, back your views, and see what the crowd believes.',images:[image]}};
+ return {title:{absolute:'Pigeon Arena | Predict What Happens Next'},description:'Join Pigeon Arena to predict real-world events, back your views, follow live markets, and discover what the crowd believes.',openGraph:{title:'Pigeon Arena — Predict What Happens Next',description:'Predict real-world events, back your views, and see what the crowd believes.',url:origin,siteName:'Pigeon Arena',type:'website',images:[{url:image,width:2400,height:1260,alt:'Pigeon Arena'}]},twitter:{card:'summary_large_image',title:'Pigeon Arena — Predict What Happens Next',description:'Predict real-world events, back your views, and see what the crowd believes.',images:[image]}};
 }
 
 export default function Home() { return <WaitlistProvider><main><Hero /><ProductTour renders={renders} /><EventsSection /><NewSections /></main><Footer /></WaitlistProvider>; }

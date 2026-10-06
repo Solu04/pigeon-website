@@ -40,7 +40,7 @@ export function SocialCards(){
       video.muted=true;video.defaultMuted=true;video.loop=true;video.playsInline=true;video.controls=false;
       video.setAttribute('muted','');video.setAttribute('playsinline','');video.setAttribute('webkit-playsinline','true');video.removeAttribute('controls');
     };
-    const play=()=>{if(cancelled||!active||document.visibilityState==='hidden')return;prime();void video.play().catch(()=>{});};
+    const play=()=>{if(cancelled||!active||document.visibilityState==='hidden')return;prime();void video.play().then(()=>video.setAttribute('data-playing','')).catch(()=>{});};
     const observer=new IntersectionObserver(([entry])=>{
       active=entry.isIntersecting&&entry.intersectionRatio>.1;
       if(active){video.currentTime=0;play();[120,500,1200].forEach((delay)=>retries.push(setTimeout(play,delay)));}
@@ -56,7 +56,7 @@ export function SocialCards(){
     <div className="site-container discovery-intro"><p className="landing-display discovery-line">Discover where</p><p className="landing-display discovery-line discovery-line--the">the world thinks</p></div>
     <div className="discovery-runway" ref={runway}><div className="discovery-pin">
       <div className="site-container discovery-next"><p className="landing-display discovery-line discovery-line--next">next.</p><img className="discovery-live-asset" src="/images/sections/discover-live.svg" width={234} height={104} alt="Live market predictions"/></div>
-      <div className="site-container social-grid">{cards.map(([title,description],index)=><article className="social-card" key={title}>{index===0?<video ref={socialVideo} className="social-card-media social-card-video" src="/videos/social-card-animation.webm" width={740} height={800} aria-label="Create a post on Pigeon" muted playsInline loop autoPlay controls={false} disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" preload="auto"/>:<img className="social-card-media" src={'/images/sections/social-card-'+(index+1)+'.svg'} width={370} height={400} alt={['Create a post on Pigeon','Back your prediction and join the conversation','Discover fanbase conversations'][index]}/>}<h3>{title}</h3><p>{description}</p></article>)}</div>
+      <div className="site-container social-grid">{cards.map(([title,description],index)=><article className="social-card" key={title}>{index===0?<video ref={socialVideo} className="social-card-media social-card-video" src="/videos/social-card-animation.webm" width={740} height={800} aria-label="Create a post on Pigeon" muted playsInline loop autoPlay controls={false} disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" preload="auto" onPlaying={(event)=>event.currentTarget.setAttribute('data-playing','')} onPause={(event)=>event.currentTarget.removeAttribute('data-playing')}/>:<img className="social-card-media" src={'/images/sections/social-card-'+(index+1)+'.svg'} width={370} height={400} alt={['Create a post on Pigeon','Back your prediction and join the conversation','Discover fanbase conversations'][index]}/>}<h3>{title}</h3><p>{description}</p></article>)}</div>
     </div></div>
   </section>;
 }

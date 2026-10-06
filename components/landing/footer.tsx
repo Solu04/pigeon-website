@@ -27,7 +27,7 @@ export function Footer(){
   <div className="footer-socials" aria-label="Social media">
    <a href="https://x.com/pigeonarena?s=11" target="_blank" rel="noopener noreferrer" aria-label="X"><img src="/images/footer/x.svg" width={16} height={16} alt=""/></a>
    <a href="https://www.instagram.com/pigeonarena?stkn=MWs3aXNiMndjMWU1NQ==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="/images/footer/instagram.svg" width={16} height={16} alt=""/></a>
-   <span aria-label="TikTok"><img src="/images/footer/tiktok.svg" width={16} height={16} alt=""/></span>
+   <a href="https://www.tiktok.com/@pigeonarena?_r=1&_t=ZS-9AKdYk9VSmi" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><img src="/images/footer/tiktok.svg" width={16} height={16} alt=""/></a>
   </div>
  </footer>;
 }

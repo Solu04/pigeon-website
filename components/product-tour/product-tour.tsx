@@ -77,7 +77,7 @@ export function ProductTour({renders}:{renders:ProductRenders}) {
     const playActiveVideo = () => {
       if (cancelled || document.visibilityState === 'hidden') return;
       primeVideo(activeVideo);
-      void activeVideo.play().catch(() => {});
+      void activeVideo.play().then(()=>activeVideo.setAttribute('data-playing','')).catch(()=>{});
     };
 
     activeVideo.currentTime = 0;
@@ -115,7 +115,7 @@ export function ProductTour({renders}:{renders:ProductRenders}) {
       <div className="site-container product-tabs">
         <div className="product-render-stage">
           {tabs.map((tab,index)=><div key={tab.id} id={`feature-panel-${tab.id}`} role="tabpanel" aria-hidden={activeIndex!==index} className="product-render-panel" data-active={activeIndex===index||undefined}>
-            <span className="product-render-asset"><video ref={(node)=>{videoRefs.current[index]=node;if(node){node.muted=true;node.defaultMuted=true;node.playsInline=true;node.controls=false}}} className="product-render-video" src={renders[tab.id].src} aria-label={renders[tab.id].alt} width={920} height={1924} muted playsInline loop autoPlay={activeIndex===index} controls={false} disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" preload={Math.abs(index-activeIndex)<=1?'auto':'metadata'} onLoadedData={(event)=>{if(activeIndex===index&&isVisible){event.currentTarget.muted=true;void event.currentTarget.play().catch(()=>{})}}} onCanPlay={(event)=>{if(activeIndex===index&&isVisible){event.currentTarget.muted=true;void event.currentTarget.play().catch(()=>{})}}}/></span>
+            <span className="product-render-asset"><video ref={(node)=>{videoRefs.current[index]=node;if(node){node.muted=true;node.defaultMuted=true;node.playsInline=true;node.controls=false}}} className="product-render-video" src={renders[tab.id].src} aria-label={renders[tab.id].alt} width={920} height={1924} muted playsInline loop autoPlay={activeIndex===index} controls={false} disablePictureInPicture controlsList="nodownload nofullscreen noremoteplayback" preload={Math.abs(index-activeIndex)<=1?'auto':'metadata'} onPlaying={(event)=>event.currentTarget.setAttribute('data-playing','')} onPause={(event)=>event.currentTarget.removeAttribute('data-playing')} onLoadedData={(event)=>{if(activeIndex===index&&isVisible){event.currentTarget.muted=true;void event.currentTarget.play().catch(()=>{})}}} onCanPlay={(event)=>{if(activeIndex===index&&isVisible){event.currentTarget.muted=true;void event.currentTarget.play().catch(()=>{})}}}/></span>
           </div>)}
         </div>
         <div className="product-tab-list" role="tablist" aria-label="Pigeon features">
