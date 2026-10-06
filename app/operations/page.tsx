@@ -3,13 +3,13 @@ import { SiteHeader } from '@/components/site-header';
 import { WaitlistProvider } from '@/components/waitlist/waitlist-provider';
 import { FaqSection } from '@/components/landing/faq-section';
 import { Footer } from '@/components/landing/footer';
+import { getRequestOrigin, getSocialImage } from '@/lib/request-origin';
 
-export const metadata: Metadata = {
-  title: 'How Pigeon Arena Works',
-  description: 'Understand Pigeon Arena contracts, market pricing, trading positions, outcome resolution, multi-choice markets, and fees.',
-  openGraph: { title:'How Pigeon Arena Works', description:'Understand Pigeon Arena contracts, pricing, market resolution, and fees.', images:[{url:'/images/meta/operations-opengraph.png',width:1280,height:696,alt:'Pigeon Arena operations'}] },
-  twitter: { card:'summary_large_image', title:'How Pigeon Arena Works', description:'Understand Pigeon Arena contracts, pricing, market resolution, and fees.', images:['/images/meta/operations-opengraph.png'] },
-};
+export async function generateMetadata():Promise<Metadata>{
+ const origin=await getRequestOrigin();
+ const image=getSocialImage(origin);
+ return {title:'How Pigeon Arena Works',description:'Understand Pigeon Arena contracts, market pricing, trading positions, outcome resolution, multi-choice markets, and fees.',openGraph:{title:'How Pigeon Arena Works',description:'Understand Pigeon Arena contracts, pricing, market resolution, and fees.',url:`${origin}/operations`,siteName:'Pigeon Arena',type:'website',images:[{url:image,width:2400,height:1260,alt:'Pigeon Arena'}]},twitter:{card:'summary_large_image',title:'How Pigeon Arena Works',description:'Understand Pigeon Arena contracts, pricing, market resolution, and fees.',images:[image]}};
+}
 
 export default function Operations() {
   return <WaitlistProvider>

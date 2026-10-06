@@ -10,7 +10,7 @@ export function NewSections() {
       <div className="rewards-grid">
         <article className="reward-feature reward-feature--topics"><h3>Built for<br/>everyone.</h3><p>Whether you’re into football, elections, crypto or entertainment</p><ViewAnimation className="reward-topics-art" src="/images/sections/topic-pills.svg" width={329} height={442} alt="Topics including football, crypto, elections, entertainment, economics, tech and science"/></article>
         <article className="reward-feature reward-feature--opinions"><h3>Real<br/>opinions.</h3><p>Markets move because people believe.</p><ViewAnimation className="reward-opinions-art" src="/images/sections/opinion-bars.svg" width={329} height={216} alt="The crowd’s Yes, No and Undecided positions"/></article>
-        <article className="reward-feature reward-feature--early"><h3>Be<br/>early.</h3><p>Join Pigeon Arena to see what the world currently believes in.</p><ViewAnimation className="reward-status-art" src="/images/sections/status-bar.svg" width={289} height={157} alt="Illustration of early-access waitlist progress"/></article>
+        <article className="reward-feature reward-feature--early"><h3>Be<br/>early.</h3><p>Join Pigeon Arena to see what the world currently believes in.</p><ViewAnimation className="reward-status-art" src="/images/sections/waitlist-progress-synced-smooth.svg" width={289} height={157} alt="Illustration of early-access waitlist progress"/></article>
       </div>
     </section>
     <section className="fair-section site-container" aria-labelledby="fair-heading">
