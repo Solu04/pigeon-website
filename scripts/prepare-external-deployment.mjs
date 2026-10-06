@@ -5,7 +5,9 @@ import process from 'node:process';
 const databaseId = process.env.PIGEON_D1_DATABASE_ID?.trim() || '14c3cb75-e137-4772-8d31-e5b618ff36a6';
 const databaseName = process.env.PIGEON_D1_DATABASE_NAME?.trim() || 'pigeon-waitlist';
 const workerName = process.env.PIGEON_WORKER_NAME?.trim() || 'pigeon-arena';
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || 'https://pigeon-arena.hamza-logs.workers.dev';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim() || 'https://pigeonarena.com';
+const customDomain = process.env.PIGEON_CUSTOM_DOMAIN?.trim() || 'pigeonarena.com';
+const notificationEmail = process.env.PIGEON_WAITLIST_NOTIFY_TO?.trim() || 'hello@pigeonarena.com';
 
 if (!databaseId || databaseId === 'replace-with-your-cloudflare-d1-database-id') {
   throw new Error('PIGEON_D1_DATABASE_ID must contain your Cloudflare D1 database ID.');
@@ -23,5 +25,15 @@ config.d1_databases = [{
   database_id: databaseId,
   migrations_dir: '../../drizzle',
 }];
+config.routes = [{ pattern: customDomain, custom_domain: true }];
+config.send_email = [{
+  name: 'WAITLIST_EMAIL',
+  destination_address: notificationEmail,
+}];
+config.vars = {
+  ...(config.vars || {}),
+  WAITLIST_NOTIFY_TO: notificationEmail,
+  WAITLIST_NOTIFY_FROM: `waitlist@${customDomain}`,
+};
 await writeFile(path.resolve('dist/server/wrangler.external.json'), JSON.stringify(config, null, 2) + '\n');
 console.log('Prepared dist/server/wrangler.external.json');
