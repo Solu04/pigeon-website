@@ -1,12 +1,13 @@
 import { spawnSync } from 'node:child_process';
+import path from 'node:path';
 import process from 'node:process';
 
 const databaseName = process.env.PIGEON_D1_DATABASE_NAME?.trim() || 'pigeon-waitlist';
-const runner = process.platform === 'win32' ? 'npx.cmd' : 'npx';
+const wranglerCli = path.resolve('node_modules/wrangler/bin/wrangler.js');
 const config = 'dist/server/wrangler.external.json';
 
 function run(args) {
-  const result = spawnSync(runner, ['wrangler', ...args], { stdio: 'inherit', shell: false });
+  const result = spawnSync(process.execPath, [wranglerCli, ...args], { stdio: 'inherit', shell: false });
   if (result.error) throw result.error;
   if (result.status !== 0) process.exit(result.status ?? 1);
 }

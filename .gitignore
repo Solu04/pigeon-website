@@ -38,3 +38,8 @@ next-env.d.ts
 /outputs/
 /work/
 *.tsbuildinfo
+
+# local deployment tooling and credentials
+/.gitconfig-codex
+/.npm-cache/
+/.wrangler-config/
