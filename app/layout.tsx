@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import {HeadingRevealController} from '@/components/heading-reveal-controller';
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://pigeon-arena.hamza-logs.workers.dev'),
+  metadataBase: new URL('https://pigeonarena.com'),
   title: { default: 'Pigeon Arena — Social Prediction Markets', template: '%s | Pigeon Arena' },
   description: 'Predict real-world events, back your position, join conversations, and see what the crowd believes on Pigeon Arena.',
   icons: { icon: [{url:'/favicon-light.png?v=20261006',type:'image/png',media:'(prefers-color-scheme: light)'},{url:'/favicon-dark.png?v=20261006',type:'image/png',media:'(prefers-color-scheme: dark)'}], shortcut: [{url:'/favicon-dark.png?v=20261006',type:'image/png'}], apple: [{url:'/webclip.png',type:'image/png'}] },

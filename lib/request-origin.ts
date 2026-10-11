@@ -1,6 +1,6 @@
 import {headers} from 'next/headers';
 
-const fallbackOrigin = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://pigeon-arena.hamza-logs.workers.dev';
+const fallbackOrigin = 'https://pigeonarena.com';
 
 export async function getRequestOrigin(){
  const requestHeaders=await headers();
